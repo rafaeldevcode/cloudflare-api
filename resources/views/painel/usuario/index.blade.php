@@ -5,9 +5,9 @@
 
         <main class="container my-5">
             <section class="conatiner">
-                <div class="rounded border border-danger position-relative col-12 col-md-9 m-auto p-3 d-flex justify-content-center align-items-center">
+                <div class="rounded border border-cloudflare position-relative col-12 col-md-9 m-auto p-3 d-flex justify-content-center align-items-center">
                     <div class="rounded-circle image-user position-relative">
-                        <img class="border border-2 border-danger rounded-circle" src="{{ asset('images/user.png') }}" alt="{{ $usuario->name }}">
+                        <img class="border border-2 border-cloudflare rounded-circle" src="{{ asset('images/user.png') }}" alt="{{ $usuario->name }}">
                         <div class="position-absolute rounded-circle p-2 bg-dark d-flex justify-content-center align-itens-center">
                             <i class="fas fa-pencil-alt fs-6 text-light" id="editar-imagen"></i>
                         </div>
@@ -21,8 +21,8 @@
                         <i id="fechar-formulario-imagen" class="fas fa-times position-absolute"></i>
                         <form action="/painel/perfil/{{ $usuario->id }}/adicionar-imagen" method="POST" enctype="multipart/form-data" class="d-flex col-12">
                             @csrf
-                            <input type="file" name="image_usuario" class="form-control col-9">
-                            <button class="btn btn-danger col-3" type="submit">Salvar</button>
+                            <input type="file" name="image_usuario" class="form-control w-75">
+                            <button class="btn btn-cloudflare w-25" type="submit">Salvar</button>
                         </form>
                     </div>
                 </div>

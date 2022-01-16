@@ -6,7 +6,7 @@
     <main class="d-flex justify-content-between position-relative">
         <section class="container my-5">
             <div class="col-12 col-md-6 m-auto">
-                <form action="?" method="POST" class="form-control border border-danger py-5">
+                <form action="?" method="POST" class="form-control border border-cloudflare py-5">
                     <div class="p-2">
                         <label for="nome" class="fs-6 text-secondary">Nome</label>
                         <input type="text" class="form-control" name="nome" placeholder="Nome">
@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="mt-3 col-12">
-                        <button class="btn btn-danger w-100 px-3 py-2">
+                        <button class="btn btn-cloudflare fw-bold text-light w-100 px-3 py-2">
                             Salvar
                         </button>
                     </div>

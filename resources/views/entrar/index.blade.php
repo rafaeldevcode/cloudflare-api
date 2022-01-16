@@ -2,7 +2,7 @@
 
 @section('conteudo')
     <main class="container m-auto">
-        <section class="rounded shadow-sm shadow-danger mt-5 col-12 col-md-6 m-auto border border-danger">
+        <section class="rounded shadow-sm shadow-danger mt-5 col-12 col-md-6 m-auto border border-cloudflare">
             <div class="col-10 col-sm-4 m-auto p-3">
                 <img class="img-fluid" src="{{ asset('images/logo.png') }}" alt="Logo">
             </div>
@@ -24,7 +24,7 @@
                     </div>
 
                     <div class="mt-4 text-center">
-                        <button title="Entrar" type="submit" class="btn btn-danger w-100 py-2 mb-2">
+                        <button title="Entrar" type="submit" class="btn btn-cloudflare fw-bold text-light w-100 py-2 mb-2">
                             Entrar
                         </button>
 
@@ -51,7 +51,7 @@
                     </div>
 
                     <div class="mt-4 text-center">
-                        <button title="Cadastrar" type="submit" class="btn btn-danger w-100 py-2 mb-2">
+                        <button title="Cadastrar" type="submit" class="btn btn-cloudflare fw-bold text-light w-100 py-2 mb-2">
                             Cadastrar
                         </button>
 

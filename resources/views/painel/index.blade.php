@@ -10,13 +10,13 @@
             </div>
 
             <ul class="list-group col-12 col-md-6 mt-5 m-auto">
-                <li class="list-group-item alert alert-danger">
+                <li class="list-group-item border border-cloudflare mb-3">
                     Você ainda nao possui nenhuma conta cadastrada!
                 </li>
             </ul>
 
             <div class="col-12 col-md-6 mt-2 m-auto">
-                <a title="Adicionar nova conta" href="/adicionar/nova-conta" class="btn btn-danger w-100 px-3 py-2">
+                <a title="Adicionar nova conta" href="/adicionar/nova-conta" class="btn btn-cloudflare w-100 px-3 py-2 text-light fw-bold">
                     Adicionar nova conta
                 </a>
             </div>
