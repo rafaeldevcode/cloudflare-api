@@ -1,0 +1,155 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body,
+html{
+    overflow-x: hidden;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+aside{
+    width: 60px;
+    transition: width .3s linear;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+}
+
+aside:hover{
+    width: 180px;
+}
+
+.image-logo{
+    width: 150px;
+}
+
+.drop::before{
+    content: '';
+    position: absolute;
+    right: -15px;
+    bottom: 50%;
+
+    display: inline-block;
+    vertical-align: middle;
+    width: 0; 
+    height: 0; 
+  
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #6C757D;
+}
+
+.drop ul{
+    right: 0;
+    width: 100px;
+    z-index: 2;
+}
+
+.btn-menu{
+    position: absolute;
+    left: -15px;
+    top: 0;
+    font-size: 20px;
+}
+
+.image-user{
+    width: 120px;
+    height: 120px;
+}
+
+.image-user img{
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.image-user div{
+    width: 30px;
+    height: 30px;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+#formulario-imagen > i{
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 1rem;
+}
+
+.animacaoEntrada{
+    animation: animacaoEntrada .5s linear forwards;
+}
+
+.animacaoSaida{
+    animation: animacaoSaida .5s linear forwards;
+}
+
+.opacidade{
+    animation: opacidade .4s linear forwards;
+}
+
+.opacidadeReversa{
+    animation: opacidadeReversa .4s linear forwards;
+}
+
+@keyframes animacaoEntrada {
+    0%{
+        opacity: 0;
+        transform: translateY(-400px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes animacaoSaida {
+    0%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100%{
+        opacity: 0;
+        transform: translateX(-400px);
+    }
+}
+
+@keyframes opacidade {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes opacidadeReversa {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+@media only screen and (max-width: 770px){
+    aside{
+        right: -60px;
+    }
+}
