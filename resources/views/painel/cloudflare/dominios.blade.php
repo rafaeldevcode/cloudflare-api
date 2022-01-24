@@ -18,7 +18,7 @@
                 @else
                     @foreach ($response as $indice => $dominios)
                         <li class="list-group-item border border-cloudflare mb-3">
-                            {{ $dominios['result'][$indice]['name'] }}
+                            {{ $dominios['result'][$indice++]['name'] }}
                         </li>
                     @endforeach
                 @endif
