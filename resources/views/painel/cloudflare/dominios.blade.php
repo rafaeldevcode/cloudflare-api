@@ -11,17 +11,17 @@
             </div>
 
             <ul class="list-group col-12 col-md-6 mt-5 m-auto">
-                {{-- @if (empty($response['result'][0]))
+                @if (empty($response['result'][0]))
                     <li class="list-group-item border border-cloudflare mb-3">
                         Nenhum domínio cadastrado para esta conta!
                     </li>
-                @else --}}
-                    @foreach ($response as $dominios)
+                @else
+                    @foreach ($response as $indice => $dominios)
                         <li class="list-group-item border border-cloudflare mb-3">
-                            {{ $dominios[0]['result']['name'] }}
+                            {{ $dominios['result'][$indice]['name'] }}
                         </li>
                     @endforeach
-                {{-- @endif --}}
+                @endif
             </ul>
         </section>
     </main>
