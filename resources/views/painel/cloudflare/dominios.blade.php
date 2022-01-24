@@ -16,7 +16,7 @@
                         Nenhum domínio cadastrado para esta conta!
                     </li>
                 @else
-                    @for ($i = 0; $i < $count; $i++)
+                    @for ($i = 0; $i < count($response['result']); $i++)
                         <li class="list-group-item border border-cloudflare mb-3">
                             {{ $response['result'][$i]['name'] }}
                         </li>
