@@ -38,9 +38,9 @@ class CloudflareController extends Controller
         $response = $conectar->getApiCloudflare($conta, 'zones');
         $response = json_decode($response, true);
         // dd($response);
-        foreach($response as $item){
-            echo $item;
-        }
+        // foreach($response as $item){
+        //     echo $item;
+        // }
 
         return view('painel/cloudflare/dominios', compact('usuario', 'conta', 'response'));
     }
