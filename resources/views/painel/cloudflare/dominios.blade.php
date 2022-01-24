@@ -16,11 +16,11 @@
                         Nenhum domínio cadastrado para esta conta!
                     </li>
                 @else
-                    @foreach ($response as $indice => $dominios)
+                    @for ($i = 0; $i < $count; $i++)
                         <li class="list-group-item border border-cloudflare mb-3">
-                            {{ $dominios['result'][$indice++]['name'] }}
+                            {{ $response['result'][$i]['name'] }}
                         </li>
-                    @endforeach
+                    @endfor
                 @endif
             </ul>
         </section>
