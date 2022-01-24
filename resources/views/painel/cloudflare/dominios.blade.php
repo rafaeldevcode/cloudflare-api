@@ -11,13 +11,17 @@
             </div>
 
             <ul class="list-group col-12 col-md-6 mt-5 m-auto">
-                <li class="list-group-item border border-cloudflare mb-3">
-                    Nenhum domínio cadastrado para esta conta!
-                </li>
-
-                <li class="list-group-item border border-cloudflare mb-3">
-                    {{ print_r($response) }}
-                </li>
+                @if (empty($response[0]))
+                    <li class="list-group-item border border-cloudflare mb-3">
+                        Nenhum domínio cadastrado para esta conta!
+                    </li>
+                @else
+                    @foreach ($response as $item)
+                        <li class="list-group-item border border-cloudflare mb-3">
+                            {{ $dominios->name }}
+                        </li>
+                    @endforeach
+                @endif
             </ul>
         </section>
     </main>
