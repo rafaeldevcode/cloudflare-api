@@ -16,9 +16,9 @@
                         Nenhum domínio cadastrado para esta conta!
                     </li>
                 @else
-                    @foreach ($response as $item)
+                    @foreach ($response as $dominios)
                         <li class="list-group-item border border-cloudflare mb-3">
-                            {{ $dominios->name }}
+                            {{ $dominios }}
                         </li>
                     @endforeach
                 @endif
