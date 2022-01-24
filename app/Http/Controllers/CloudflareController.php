@@ -37,7 +37,7 @@ class CloudflareController extends Controller
 
         $response = $conectar->getApiCloudflare($conta, 'zones');
         $response = json_decode($response, true);
-        dd($response);
+        dd($response['result'][0]['name']);
         // foreach($response as $item){
         //     echo $item;
         // }
