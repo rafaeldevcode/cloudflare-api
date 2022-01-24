@@ -73,7 +73,7 @@ aside:hover{
 .image-user img{
     width: 120px;
     height: 120px;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .image-user div{
@@ -82,6 +82,11 @@ aside:hover{
     bottom: 0;
     right: 0;
     cursor: pointer;
+}
+
+#formulario-imagen{
+    top: 0;
+    left: 0;
 }
 
 #formulario-imagen > i{

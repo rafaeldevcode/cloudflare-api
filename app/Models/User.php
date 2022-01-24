@@ -6,7 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Cloudflare;
 
 class User extends Authenticatable
 {
@@ -42,4 +44,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function cloudflare()
+    {
+        return $this->hasMany(Cloudflare::class);
+    }
+
+    public function getImagemUsuarioAttribute()
+    {
+        if($this->image_usuario){
+            return Storage::url($this->image_usuario);
+        }else{
+            return str_replace('/storage', '', Storage::url('images/avatar.png'));
+        }
+    }
 }

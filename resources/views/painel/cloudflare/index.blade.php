@@ -6,10 +6,11 @@
     <main class="d-flex justify-content-between position-relative">
         <section class="container my-5">
             <div class="col-12 col-md-6 m-auto">
-                <form action="?" method="POST" class="form-control border border-cloudflare py-5">
+                <form action="/usuario/{{ $usuario->id }}/adicionar-conta" method="POST" class="form-control border border-cloudflare py-5">
+                    @csrf
                     <div class="p-2">
                         <label for="nome" class="fs-6 text-secondary">Nome</label>
-                        <input type="text" class="form-control" name="nome" placeholder="Nome">
+                        <input type="text" class="form-control" name="nome" placeholder="Adicione um nome para essa conta">
                     </div>
 
                     <div class="mt-2 p-2">
@@ -18,7 +19,7 @@
                     </div>
 
                     <div class="mt-2 p-2">
-                        <label for="chave_api" class="fs-6 text-secondary">Chave de api</label>
+                        <label for="chave_api" class="fs-6 text-secondary">Chave de api - Global</label>
                         <input type="text" class="form-control" name="chave_api" placeholder="Encontrada no painel de usuário">
                     </div>
 
@@ -30,7 +31,6 @@
                 </form>
             </div>
         </section>
-        @include('layouts/componentes/aside')
     </main>
 @include('layouts/componentes/footer')
 @endsection

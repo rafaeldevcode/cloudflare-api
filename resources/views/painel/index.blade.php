@@ -2,7 +2,7 @@
 
 @section('conteudo')
     @include('layouts/componentes/header')
-
+    @include('layouts/componentes/mensagem')
     <main class="d-flex justify-content-between position-relative">
         <section class="container my-5">
             <div class="mt-3">
@@ -10,9 +10,19 @@
             </div>
 
             <ul class="list-group col-12 col-md-6 mt-5 m-auto">
-                <li class="list-group-item border border-cloudflare mb-3">
-                    Você ainda nao possui nenhuma conta cadastrada!
-                </li>
+                @if (empty($contas[0]))
+                    <li class="list-group-item border border-cloudflare mb-3">
+                        Você ainda nao possui nenhuma conta cadastrada!
+                    </li>
+                @else
+                    @foreach ($contas as $conta)
+                        <li class="list-group-item border border-cloudflare mb-3">
+                            <a title="Dominos de {{ $conta->nome }}" href="/cloudflare/conta/{{ $conta->id }}" class="text-decoration-none text-cloudflare">
+                                {{ $conta->nome }}
+                            </a>
+                        </li>
+                    @endforeach
+                @endif
             </ul>
 
             <div class="col-12 col-md-6 mt-2 m-auto">

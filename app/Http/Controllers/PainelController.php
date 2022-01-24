@@ -14,18 +14,13 @@ class PainelController extends Controller
         $this->middleware('Autenticador');
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $usuario = Auth::user();
         $usuarios = User::all();
+        $contas = $usuario->cloudflare;
+        $mensagem = $request->session()->get('mensagem');
 
-        return view('painel/index', compact('usuario', 'usuarios'));
-    }
-
-    public function novaConta()
-    {
-        $usuario = Auth::user();
-
-        return view('painel/novaConta', compact('usuario'));
+        return view('painel/index', compact('usuario', 'usuarios', 'contas', 'mensagem'));
     }
 }

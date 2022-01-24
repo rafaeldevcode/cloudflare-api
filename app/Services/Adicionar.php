@@ -20,4 +20,21 @@ class Adicionar{
                 Auth::login($user);
             }
         }
+
+        public function adicionarImagenUsuario($request, $ID)
+        {
+            DB::beginTransaction();
+                $usuario = User::find($ID);
+                $usuario->image_usuario = $request->file('image_usuario')->store('galeria');
+                $usuario->save();
+            DB::commit();
+        }
+
+        public function adicionarContaCloudflare($request, $ID)
+        {
+            DB::beginTransaction();
+                $usuario = User::find($ID);
+                $usuario->cloudflare()->create($request->all());
+            DB::commit();
+        }
     }

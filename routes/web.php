@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{EntrarController, PainelController, UsuarioController};
+use App\Http\Controllers\{CloudflareController, EntrarController, PainelController, UsuarioController};
+use App\Models\Cloudflare;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,10 @@ Route::post('/entrar', [EntrarController::class, 'entrar']);
 Route::get('/sair', [EntrarController::class, 'logout']);
 
 Route::get('/painel', [PainelController::class, 'index']);
-Route::get('/adicionar/nova-conta', [PainelController::class, 'novaConta']);
+
+Route::get('/adicionar/nova-conta', [CloudflareController::class, 'index']);
+Route::post('/usuario/{ID}/adicionar-conta', [CloudflareController::class, 'store']);
+Route::get('/cloudflare/conta/{ID}', [CloudflareController::class, 'dominios']);
 
 Route::get('/painel/perfil/{nomeUsuario}', [UsuarioController::class, 'index']);
 Route::post('/painel/perfil/{ID}/adicionar-imagen', [UsuarioController::class, 'store']);
