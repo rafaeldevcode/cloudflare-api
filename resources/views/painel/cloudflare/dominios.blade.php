@@ -14,6 +14,10 @@
                 <li class="list-group-item border border-cloudflare mb-3">
                     Nenhum domínio cadastrado para esta conta!
                 </li>
+
+                <li class="list-group-item border border-cloudflare mb-3">
+                    {{ print_r($response) }}
+                </li>
             </ul>
         </section>
     </main>
