@@ -49,14 +49,16 @@ function abilitarFormulario(){
     let arrow = document.querySelectorAll('.arrow');
 
     for(let i = 0; i < limparUrls.length; i++){
-        limparUrls[i].addEventListener('click', ()=>{
+        limparUrls[i].addEventListener('click', (event)=>{
+            event.preventDefault();
+
             if(formLimparUrls[i].hasAttribute){
                 formLimparUrls[i].removeAttribute('hidden');
 
                 arrow[i].classList.remove('rotateReverse');
                 arrow[i].classList.add('rotate');
             }else{
-                formLimparUrls[i].hidden = true;
+                formLimparUrls[i].setAttribute('hidden');
 
                 arrow[i].classList.remove('rotate');
                 arrow[i].classList.add('rotateReverse');
