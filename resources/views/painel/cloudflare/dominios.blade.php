@@ -13,7 +13,7 @@
             </div>
 
             <ul class="list-group col-12 col-md-8 col-lg-6 mt-5 m-auto">
-                <li class="header-list list-group-item mb-3 rounded text-cloudflare d-flex justify-content-between align-items-center">
+                <li class="header-list list-group-item mb-3 rounded d-flex justify-content-between align-items-center">
                     Domínio
                     <span class="d-flex">
                         <p class="m-1">Limpar chache de urls</p>
