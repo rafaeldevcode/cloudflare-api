@@ -43,7 +43,7 @@
 
             <div>
                 <span>
-                    1 de 2 paginas
+                    {{ $response['result_info']['page'] }} de {{ $response['result_info']['total_pages'] }} paginas
                 </span>
 
                 <div class="d-flex justify-content-center align-items-center">
