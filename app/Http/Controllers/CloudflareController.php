@@ -44,7 +44,7 @@ class CloudflareController extends Controller
     {
         $conta = Cloudflare::find($ID);
         $id_cloudflare = $request->id_cloudflare;
-        $response = json_decode($conectar->purgeAll($conta, $id_cloudflare), true);
+        $response = $conectar->purgeAll($conta, $id_cloudflare);
 
         dd($response);
     }
