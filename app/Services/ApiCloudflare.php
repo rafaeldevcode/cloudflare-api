@@ -18,11 +18,13 @@ class ApiCloudflare{
 
     public function purgeAll($conta, $id)
     {
-        $reponse = Http::withHeaders(array(
-            'X-Auth-Key: 5f71fcec7e31e269d322b091486014e471d9f',
-            'X-Auth-Email: rafaelv@femglobalbrands.com.br',
-            '--data: {"purge_everything":true}',
-          ))->post("https://api.cloudflare.com/client/v4/zones/{$id}/purge_cache/");
+        $data = '{"purge_everything"}:true';
+        $reponse = Http::withHeaders([
+            'X-Auth-Key'   => $conta->chave_api,
+            'X-Auth-Email' => $conta->email,
+            '--data'       => $data
+        ]
+        )->post("https://api.cloudflare.com/client/v4/zones/{$id}/purge_cache/");
 
         return $reponse;
     }
