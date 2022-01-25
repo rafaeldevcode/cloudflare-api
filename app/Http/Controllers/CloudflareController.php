@@ -57,11 +57,13 @@ class CloudflareController extends Controller
     }
 
     ///////// LIMPAR CACHE DAS URLS FORNECIDAS //////////
-    public function purge(int $ID, Request $request)
+    public function purge(int $ID, Request $request, ApiCloudflare $conectar)
     {
         $conta = Cloudflare::find($ID);
+        $id_cloudflare = $request->id_cloudflare;
         $urls = explode("\r\n", $request->urls);
+        $response = $conectar->purgePorUrl($conta, $id_cloudflare, $urls);
 
-        dd($urls);
+        dd($response);
     }
 }
