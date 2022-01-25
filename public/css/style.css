@@ -14,22 +14,34 @@ html{
     overflow-x: hidden;
 }
 
-/* footer{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-} */
-
 aside{
     width: 60px;
+    min-height: 100%;
     transition: width .3s linear;
     cursor: pointer;
     position: absolute;
+    top: 0;
     right: 0;
+    z-index: 0;
 }
 
 aside:hover{
     width: 180px;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.footer-relative{
+    position: relative;
+}
+
+.header{
+    height: 90px;
+    position: relative;
+    z-index: 1;
 }
 
 .image-logo{
@@ -61,7 +73,7 @@ aside:hover{
 .btn-menu{
     position: absolute;
     left: -15px;
-    top: 0;
+    top: 90px;
     font-size: 20px;
 }
 

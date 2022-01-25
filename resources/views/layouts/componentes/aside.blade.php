@@ -1,4 +1,4 @@
-<aside class="h-100 bg-cloudflare p-3">
+<aside class="bg-cloudflare p-3">
     <div class="btn-menu">
         <i class="fas fa-chevron-left"></i>
     </div>

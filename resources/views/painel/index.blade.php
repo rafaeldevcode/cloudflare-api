@@ -2,11 +2,11 @@
 
 @section('conteudo')
     @include('layouts/componentes/header')
-    <div class="col-12 col-md-10 p-2 m-auto">
-        @include('layouts/componentes/mensagem', [$mensagem])
-    </div>
-
-    <main class="d-flex justify-content-between position-relative">
+    <main class="d-flex flex-column">
+        <div class="col-12 col-md-10 p-2 m-auto">
+            @include('layouts/componentes/mensagem', [$mensagem])
+        </div>
+        
         <section class="container my-5">
             <div class="mt-3">
                 <h1 class="text-center fs-3">Contas cloudflare</h1>

@@ -3,7 +3,7 @@
 @section('conteudo')
     @include('layouts/componentes/header')
 
-    <main class="d-flex justify-content-between position-relative">
+    <main class="d-flex flex-column">
         <section class="container my-5">
             <div class="col-12 col-md-6 m-auto">
                 <form action="/usuario/{{ $usuario->id }}/adicionar-conta" method="POST" class="form-control border border-cloudflare py-5">
@@ -32,5 +32,5 @@
             </div>
         </section>
     </main>
-@include('layouts/componentes/footer')
+    @include('layouts/componentes/footer')
 @endsection
