@@ -19,13 +19,10 @@ class ApiCloudflare{
     public function purgeAll($conta, $id)
     {
         $reponse = Http::withHeaders([
-            'X-Auth-Key'   => $conta->chave_api,
-            'X-Auth-Email' => $conta->email,
-            // 'Content-Type' => 'application/json',
-            'data'         => [
-                'purge_everything' => true
-            ]
-        ])->get("https://api.cloudflare.com/client/v4/{$id}/purge_cache/");
+            'X-Auth-Key'       => $conta->chave_api,
+            'X-Auth-Email'     => $conta->email,
+            'purge_everything' => true
+        ])->post("https://api.cloudflare.com/client/v4/{$id}/purge_cache/");
 
         return $reponse;
     }
