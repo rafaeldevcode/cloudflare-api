@@ -58,7 +58,7 @@ function abilitarFormulario(){
                 arrow[i].classList.remove('rotateReverse');
                 arrow[i].classList.add('rotate');
             }else{
-                formLimparUrls[i].hidden == true;
+                formLimparUrls[i].hidden = true;
 
                 arrow[i].classList.remove('rotate');
                 arrow[i].classList.add('rotateReverse');
