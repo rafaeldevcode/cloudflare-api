@@ -24,9 +24,7 @@ class ApiCloudflare{
             'X-Auth-Email' => $conta->email,
             'Content-Type' => 'application/json'
         ])->post("https://api.cloudflare.com/client/v4/zones/{$id}/purge_cache/", [
-            '--data'       => [
-                'purge_everything' => true
-            ]
+            'purge_everything' => true
         ]);
 
         return $reponse;
