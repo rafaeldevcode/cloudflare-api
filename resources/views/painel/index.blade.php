@@ -20,7 +20,7 @@
                 @else
                     @foreach ($contas as $conta)
                         <li class="list-group-item border border-cloudflare mb-3">
-                            <a title="Dominos de {{ $conta->nome }}" href="/cloudflare/conta/{{ $conta->id }}" class="text-decoration-none text-cloudflare">
+                            <a title="Dominos de {{ $conta->nome }}" href="/cloudflare/{{ $conta->id }}/?page=1" class="text-decoration-none text-cloudflare">
                                 {{ $conta->nome }}
                             </a>
                         </li>
