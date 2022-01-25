@@ -55,4 +55,13 @@ class CloudflareController extends Controller
 
         return redirect()->back();
     }
+
+    ///////// LIMPAR CACHE DAS URLS FORNECIDAS //////////
+    public function purge(int $ID, Request $request)
+    {
+        $conta = Cloudflare::find($ID);
+        $id_cloudflare = explode("\n", $request->id_cloudflare);
+
+        dd($id_cloudflare);
+    }
 }

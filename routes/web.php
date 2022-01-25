@@ -26,6 +26,7 @@ Route::get('/adicionar/nova-conta', [CloudflareController::class, 'index']);
 Route::post('/usuario/{ID}/adicionar-conta', [CloudflareController::class, 'store']);
 Route::get('/cloudflare/{ID}/', [CloudflareController::class, 'dominios']);
 Route::post('/cloudflare/{ID}/purge-all', [CloudflareController::class, 'purgeAll']);
+Route::post('/cloudflare/{ID}/purge', [CloudflareController::class, 'purge']);
 
 Route::get('/painel/perfil/{nomeUsuario}', [UsuarioController::class, 'index']);
 Route::post('/painel/perfil/{ID}/adicionar-imagen', [UsuarioController::class, 'store']);
