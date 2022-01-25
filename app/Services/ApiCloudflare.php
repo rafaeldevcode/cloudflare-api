@@ -21,6 +21,7 @@ class ApiCloudflare{
         $reponse = Http::withHeaders([
             'X-Auth-Key'   => $conta->chave_api,
             'X-Auth-Email' => $conta->email,
+            'Content-Type' => 'application/json',
             '--data'         => [
                 'purge_everything' => true
             ]
