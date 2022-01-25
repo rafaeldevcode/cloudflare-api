@@ -10,7 +10,7 @@
                 <h1 class="text-center fs-3">Dominios cadastrado em <span class="text-cloudflare">{{ $conta->nome }}</span></h1>
             </div>
 
-            <ul class="list-group col-12 col-md-6 mt-5 m-auto">
+            <ul class="list-group col-12 col-md-8 col-lg-6 mt-5 m-auto">
                 @if (empty($response['result'][0]))
                     <li class="list-group-item border border-cloudflare mb-3 rounded">
                         Nenhum domínio cadastrado para esta conta!

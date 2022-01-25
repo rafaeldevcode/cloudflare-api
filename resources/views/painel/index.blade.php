@@ -9,7 +9,7 @@
                 <h1 class="text-center fs-3">Contas cloudflare</h1>
             </div>
 
-            <ul class="list-group col-12 col-md-6 mt-5 m-auto">
+            <ul class="list-group col-12 col-md-8 col-lg-6 mt-5 m-auto">
                 @if (empty($contas[0]))
                     <li class="list-group-item border border-cloudflare mb-3">
                         Você ainda nao possui nenhuma conta cadastrada!
@@ -25,7 +25,7 @@
                 @endif
             </ul>
 
-            <div class="col-12 col-md-6 mt-2 m-auto">
+            <div class="col-12 col-md-8 col-lg-6 mt-2 m-auto">
                 <a title="Adicionar nova conta" href="/adicionar/nova-conta" class="btn btn-cloudflare w-100 px-3 py-2 text-light fw-bold">
                     Adicionar nova conta
                 </a>

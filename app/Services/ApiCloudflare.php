@@ -6,25 +6,25 @@ use Illuminate\Support\Facades\Http;
 
 class ApiCloudflare{
 
-    public function getApiCloudflare($conta, $rota)
+    public function getZones($conta)
     {
         $reponse = Http::withHeaders([
             'X-Auth-Key'   => $conta->chave_api,
             'X-Auth-Email' => $conta->email
-        ])->get("https://api.cloudflare.com/client/v4/{$rota}/");
+        ])->get("https://api.cloudflare.com/client/v4/zones/");
 
         return $reponse;
     }
 
-    public function postApiCloudflare($conta, $rota, $id)
+    public function purgeAll($conta, $id)
     {
         $reponse = Http::withHeaders([
             'X-Auth-Key'   => $conta->chave_api,
             'X-Auth-Email' => $conta->email,
-            'data'         => [
+            '--data'         => [
                 'purge_everything' => true
             ]
-        ])->post("https://api.cloudflare.com/client/v4/{$id}/{$rota}/");
+        ])->post("https://api.cloudflare.com/client/v4/{$id}/purge_cache/");
 
         return $reponse;
     }
