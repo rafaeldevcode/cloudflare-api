@@ -54,7 +54,7 @@
                                     <input type="hidden" name="id_cloudflare" value="{{ $response['result'][$i]['id'] }}">
 
                                     <div class="form-floating col-9">
-                                        <textarea class="form-control" placeholder="Uma URL por linha" id="floatingTextarea"></textarea>
+                                        <textarea class="form-control" name="urls" placeholder="Uma URL por linha" id="floatingTextarea"></textarea>
                                         <label for="floatingTextarea">Digite uma url por linha</label>
                                     </div>
 

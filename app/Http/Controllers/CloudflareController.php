@@ -60,8 +60,8 @@ class CloudflareController extends Controller
     public function purge(int $ID, Request $request)
     {
         $conta = Cloudflare::find($ID);
-        $id_cloudflare = explode("\n", $request->id_cloudflare);
+        $urls = explode("\n", $request->urls);
 
-        dd($id_cloudflare);
+        dd($urls);
     }
 }
