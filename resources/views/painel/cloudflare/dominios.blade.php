@@ -42,17 +42,17 @@
             </ul>
 
             <div>
-                <span>
+                <span class="text-center text-cloudflare">
                     {{ $response['result_info']['page'] }} de {{ $response['result_info']['total_pages'] }} paginas
                 </span>
 
                 <div class="d-flex justify-content-center align-items-center">
-                    <button title="Anterior" type="button" class="btn btn-success m-1">
+                    <button {{ $response['result_info']['page'] == 1 ? 'disabled' : '' }} title="Anterior" type="button" class="btn btn-success m-1">
                         <i class="fas fa-step-backward"></i>
                         Anterior
                     </button>
 
-                    <button title="Próximo" type="button" class="btn btn-success m-1">
+                    <button {{ $response['result_info']['page'] == $response['result_info']['total_pages'] ? 'disabled' : '' }} title="Próximo" type="button" class="btn btn-success m-1">
                         Próximo
                         <i class="fas fa-step-forward"></i>
                     </button>
