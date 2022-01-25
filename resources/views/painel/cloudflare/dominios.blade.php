@@ -28,23 +28,40 @@
                     </li>
                 @else
                     @for ($i = 0; $i < count($response['result']); $i++)
-                        <li class="list-group-item border border-cloudflare mb-3 rounded text-cloudflare d-flex justify-content-between align-items-center">
-                            {{ $response['result'][$i]['name'] }}
+                        <li class="list-group-item border border-cloudflare mb-3 rounded text-cloudflare">
+                            <div class="d-flex justify-content-between align-items-center">
+                                {{ $response['result'][$i]['name'] }}
 
-                            <span class="d-flex">
-                                <a class="btn btn-cloudflare" title="Limpar cache por urls" href="#">
-                                    <i class="fas fa-sort-down"></i>
-                                </a>
+                                <span class="d-flex">
+                                    <a class="btn btn-cloudflare" title="Limpar cache por urls" href="#">
+                                        <i class="fas fa-sort-down"></i>
+                                    </a>
+    
+                                    <form action="/cloudflare/{{  $conta->id }}/purge-all" method="POST" class="ms-2">
+                                        @csrf
+                                        <input type="hidden" name="id_cloudflare" value="{{ $response['result'][$i]['id'] }}">
+    
+                                        <button type="submit" class="btn btn-danger" title="Limpar cache">
+                                            <i class="fas fa-broom"></i>
+                                        </button>
+                                    </form>
+                                </span>
+                            </div>
 
-                                <form action="/cloudflare/{{  $conta->id }}/purge-all" method="POST" class="ms-2">
-                                    @csrf
-                                    <input type="hidden" name="id_cloudflare" value="{{ $response['result'][$i]['id'] }}">
+                            <form action="?" method="POST">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="form-floating col-10">
+                                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                                        <label for="floatingTextarea">Comments</label>
+                                    </div>
 
-                                    <button type="submit" class="btn btn-danger" title="Limpar cache">
-                                        <i class="fas fa-broom"></i>
-                                    </button>
-                                </form>
-                            </span>
+                                    <div class="col-2">
+                                        <button class="btn btn-danger" title="Limpar" type="submit">
+                                            Limpar
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </li>
                     @endfor
                 @endif
@@ -76,6 +93,7 @@
                 </div>
             </div>
         </section>
+        @include('layouts/componentes/aside')
     </main>
 
     @include('layouts/componentes/footer')
