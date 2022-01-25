@@ -20,12 +20,12 @@
                         <li class="list-group-item border border-cloudflare mb-3 rounded text-cloudflare d-flex justify-content-between align-items-center">
                             {{ $response['result'][$i]['name'] }}
 
-                            <span>
+                            <span class="d-flex">
                                 <a class="btn btn-primary" title="Ver domíminio" href="#">
                                     <i class="fas fa-eye"></i>
                                 </a>
 
-                                <form action="/cloudflare/{{  $conta->id }}/purge-all" method="POST">
+                                <form action="/cloudflare/{{  $conta->id }}/purge-all" method="POST" class="ms-2">
                                     @csrf
                                     <input type="hidden" name="id_cloudflare" value="{{ $response['result'][$i]['id'] }}">
 
