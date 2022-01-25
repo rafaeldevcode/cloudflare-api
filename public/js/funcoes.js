@@ -55,13 +55,13 @@ function abilitarFormulario(){
             if(formLimparUrls[i].hasAttribute){
                 formLimparUrls[i].removeAttribute('hidden');
 
-                arrow[i].classList.remove('rotateReverse');
-                arrow[i].classList.add('rotate');
+                arrow[i].classList.toggle('rotateReverse');
+                arrow[i].classList.toggle('rotate');
             }else{
                 formLimparUrls[i].setAttribute('hidden');
 
-                arrow[i].classList.remove('rotate');
-                arrow[i].classList.add('rotateReverse');
+                arrow[i].classList.toggle('rotate');
+                arrow[i].classList.toggle('rotateReverse');
             }
         });
     }
