@@ -21,11 +21,10 @@ class ApiCloudflare{
         $reponse = Http::withHeaders([
             'X-Auth-Key'   => $conta->chave_api,
             'X-Auth-Email' => $conta->email,
-        ],
-        // [
-            '--data'       == [
+            'Content-Type' => 'application/json',
+            '--data'       => [
                 'purge_everything' => true
-            // ]
+            ]
         ])->post("https://api.cloudflare.com/client/v4/zones/{$id}/purge_cache/");
 
         return $reponse;
