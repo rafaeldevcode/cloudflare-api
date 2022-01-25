@@ -50,10 +50,11 @@ class CloudflareController extends Controller
         $usuario = Auth::user();
         $conta = Cloudflare::find($ID);
         $page = $request->query('page');
+        $mensagem = $request->session()->get('mensagem');
 
         $response = json_decode($conectar->getZones($conta, $page), true);
-        
-        return view('painel/cloudflare/dominios', compact('usuario', 'conta', 'response'));
+
+        return view('painel/cloudflare/dominios', compact('usuario', 'conta', 'response', 'mensagem'));
     }
 
     /////////// LIMPAR O CACHE DO DOMINIO //////////
