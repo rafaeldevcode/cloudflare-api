@@ -2,7 +2,9 @@
 
 @section('conteudo')
     @include('layouts/componentes/header')
-    @include('layouts/componentes/mensagem')
+    <div class="col-12 col-md-10 p-2">
+        @include('layouts/componentes/mensagem')
+    </div>
 
     <main class="d-flex justify-content-between position-relative">
         <section class="container my-5">
