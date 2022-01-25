@@ -36,7 +36,7 @@ class CloudflareController extends Controller
         $conta = Cloudflare::find($ID);
 
         $response = $conectar->getZones($conta);
-        $response = json_decode($response, true);
+        // $response = json_decode($response, true);
 
         return view('painel/cloudflare/dominios', compact('usuario', 'conta', 'response'));
     }
@@ -45,7 +45,7 @@ class CloudflareController extends Controller
     {
         $conta = Cloudflare::find($ID);
         $id_cloudflare = $request->id_cloudflare;
-        $response = json_decode($conectar->purgeAll($conta, $id_cloudflare));
+        $response = json_decode($conectar->purgeAll($conta, $id_cloudflare), true);
 
         dd($response);
     }
