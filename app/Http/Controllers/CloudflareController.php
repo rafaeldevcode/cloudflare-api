@@ -38,8 +38,6 @@ class CloudflareController extends Controller
         $response = $conectar->getZones($conta);
         $response = json_decode($response, true);
 
-        dd($response);
-
         return view('painel/cloudflare/dominios', compact('usuario', 'conta', 'response'));
     }
 
