@@ -48,16 +48,14 @@
 
                 <div class="d-flex justify-content-center align-items-center">
                     <form action="" method="GET">
-                        <button {{ $response['result_info']['page'] == 1 ? 'disabled' : '' }} title="Anterior" type="button" class="btn btn-success m-1">
+                        <button {{ $response['result_info']['page'] == 1 ? 'disabled' : '' }} title="Anterior" type="submit" class="btn btn-success m-1">
                             <i class="fas fa-step-backward"></i>
                             Anterior
                         </button>
                     </form>
 
-                    <form action="/cloudflare/proxima-pagina/{{ $response['result_info']['page']+1 }}" method="POST">
-                        @csrf
-                        <input type="hidden">
-                        <button {{ $response['result_info']['page'] == $response['result_info']['total_pages'] ? 'disabled' : '' }} title="Próximo" type="button" class="btn btn-success m-1">
+                    <form action="/cloudflare/proxima-pagina/{{ $response['result_info']['page']+1 }}" method="GET">
+                        <button {{ $response['result_info']['page'] == $response['result_info']['total_pages'] ? 'disabled' : '' }} title="Próximo" type="submit" class="btn btn-success m-1">
                             Próximo
                             <i class="fas fa-step-forward"></i>
                         </button>
