@@ -12,7 +12,7 @@
                 <h1 class="text-center fs-3">Dominios cadastrado em <span class="text-cloudflare">{{ $conta->nome }}</span></h1>
             </div>
 
-            <ul class="list-group col-12 col-md-8 col-lg-6 mt-5 m-auto">
+            <ul class="list-group col-12 col-md-10 col-lg-8 mt-5 m-auto">
                 <li class="header-list list-group-item mb-3 rounded d-flex justify-content-between align-items-center">
                     Domínio
                     <span class="d-flex">
@@ -48,15 +48,15 @@
                                 </span>
                             </div>
 
-                            <form action="?" method="POST">
+                            <form action="?" class="mt-2" method="POST">
                                 <div class="d-flex justify-content-between align-items-start">
-                                    <div class="form-floating col-10">
-                                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                                        <label for="floatingTextarea">Comments</label>
+                                    <div class="form-floating col-9">
+                                        <textarea class="form-control" placeholder="Uma URL por linha" id="floatingTextarea"></textarea>
+                                        <label for="floatingTextarea">Digite uma url por linha</label>
                                     </div>
 
                                     <div class="col-2">
-                                        <button class="btn btn-danger" title="Limpar" type="submit">
+                                        <button class="btn btn-danger w-100" title="Limpar" type="submit">
                                             Limpar
                                         </button>
                                     </div>
