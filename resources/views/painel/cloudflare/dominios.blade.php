@@ -2,7 +2,7 @@
 
 @section('conteudo')
     @include('layouts/componentes/header')
-    <div class="col-12 col-md-10 p-2">
+    <div class="col-12 col-md-10 p-2 m-auto">
         @include('layouts/componentes/mensagem', [$mensagem])
     </div>
 
@@ -40,6 +40,24 @@
                     @endfor
                 @endif
             </ul>
+
+            <div>
+                <span>
+                    1 de 2 paginas
+                </span>
+
+                <div class="d-flex justify-content-center align-items-center">
+                    <button title="Anterior" type="button" class="btn btn-success m-1">
+                        <i class="fas fa-step-backward"></i>
+                        Anterior
+                    </button>
+
+                    <button title="Próximo" type="button" class="btn btn-success m-1">
+                        Próximo
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                </div>
+            </div>
         </section>
     </main>
 

@@ -2,7 +2,7 @@
 
 @section('conteudo')
     @include('layouts/componentes/header')
-    <div class="col-12 col-md-10 p-2">
+    <div class="col-12 col-md-10 p-2 m-auto">
         @include('layouts/componentes/mensagem', [$mensagem])
     </div>
 
