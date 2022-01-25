@@ -30,14 +30,15 @@ class CloudflareController extends Controller
         return redirect('/painel');
     }
 
-    public function dominios(int $ID, ApiCloudflare $conectar)
+    public function dominios(int $ID, ApiCloudflare $conectar, Request $request)
     {
         $usuario = Auth::user();
         $conta = Cloudflare::find($ID);
+        $mensagem = $request->session()->get('mensagem');
 
         $response = $conectar->getZones($conta);
 
-        return view('painel/cloudflare/dominios', compact('usuario', 'conta', 'response'));
+        return view('painel/cloudflare/dominios', compact('usuario', 'conta', 'response', 'mensagem'));
     }
 
     public function purgeAll(int $ID, ApiCloudflare $conectar, Request $request)
@@ -46,7 +47,7 @@ class CloudflareController extends Controller
         $id_cloudflare = $request->id_cloudflare;
         $response = $conectar->purgeAll($conta, $id_cloudflare);
         $request->session()->flash('mensagem', $response);
-        
+
         return redirect()->back();
     }
 }

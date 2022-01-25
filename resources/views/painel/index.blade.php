@@ -3,9 +3,9 @@
 @section('conteudo')
     @include('layouts/componentes/header')
     <div class="col-12 col-md-10 p-2">
-        @include('layouts/componentes/mensagem')
+        @include('layouts/componentes/mensagem', $mensagem)
     </div>
-    
+
     <main class="d-flex justify-content-between position-relative">
         <section class="container my-5">
             <div class="mt-3">
