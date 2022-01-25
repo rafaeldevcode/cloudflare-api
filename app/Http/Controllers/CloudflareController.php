@@ -63,7 +63,8 @@ class CloudflareController extends Controller
         $id_cloudflare = $request->id_cloudflare;
         $urls = explode("\r\n", $request->urls);
         $response = $conectar->purgePorUrl($conta, $id_cloudflare, $urls);
+        $request->session()->flash('mensagem', $response);
 
-        dd($response);
+        return redirect()->back();
     }
 }

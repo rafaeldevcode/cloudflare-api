@@ -43,36 +43,9 @@ class ApiCloudflare{
             'files' => $urls
         ]);
 
-        return $response;
+        $response = json_decode($response, true);
+        $mensagem = $response['success'] == true ? 'Cache limpado com sucesso!' : 'Erro na solicitação!';
+
+        return $mensagem;
     }
-
-
-
-
-
-    // public function conectarApi()
-    // {
-    //     $curl = curl_init();
-
-    //     curl_setopt_array($curl, array(
-    //     CURLOPT_URL => 'https://api.cloudflare.com/client/v4/zones/',
-    //     CURLOPT_RETURNTRANSFER => true,
-    //     CURLOPT_ENCODING => '',
-    //     CURLOPT_MAXREDIRS => 10,
-    //     CURLOPT_TIMEOUT => 0,
-    //     CURLOPT_FOLLOWLOCATION => true,
-    //     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    //     CURLOPT_CUSTOMREQUEST => 'GET',
-    //     CURLOPT_HTTPHEADER => array(
-    //         'X-Auth-Key: 5f71fcec7e31e269d322b091486014e471d9f',
-    //         'X-Auth-Email: rafaelv@femglobalbrands.com.br',
-    //     ),
-    //     ));
-
-    //     $response = curl_exec($curl);
-
-    //     curl_close($curl);
-
-    //     return $response;
-    // }
 }
