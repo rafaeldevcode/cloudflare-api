@@ -16,6 +16,19 @@ class ApiCloudflare{
         return $reponse;
     }
 
+    public function postApiCloudflare($conta, $rota, $id)
+    {
+        $reponse = Http::withHeaders([
+            'X-Auth-Key'   => $conta->chave_api,
+            'X-Auth-Email' => $conta->email,
+            'data'         => [
+                'purge_everything' => true
+            ]
+        ])->post("https://api.cloudflare.com/client/v4/{$id}/{$rota}/");
+
+        return $reponse;
+    }
+
 
 
 

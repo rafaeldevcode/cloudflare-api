@@ -37,11 +37,17 @@ class CloudflareController extends Controller
 
         $response = $conectar->getApiCloudflare($conta, 'zones');
         $response = json_decode($response, true);
-        // dd($response['result'][0]['name']);
-        // foreach($response as $item){
-        //     echo $item;
-        // }
 
         return view('painel/cloudflare/dominios', compact('usuario', 'conta', 'response'));
+    }
+
+    public function purgeAll(int $ID, ApiCloudflare $conectar, Request $request)
+    {
+        $usuario = Auth::user();
+        $conta = Cloudflare::find($ID);
+        $id_cloudflare = $request->id_cloudflare;
+        $response = $conectar->postApiCloudflare($conta, 'purge_cache', $id_cloudflare);
+
+        dd($response);
     }
 }

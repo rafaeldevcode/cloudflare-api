@@ -17,8 +17,23 @@
                     </li>
                 @else
                     @for ($i = 0; $i < count($response['result']); $i++)
-                        <li class="list-group-item border border-cloudflare mb-3 rounded">
+                        <li class="list-group-item border border-cloudflare mb-3 rounded text-cloudflare d-flex justify-content-between align-items-center">
                             {{ $response['result'][$i]['name'] }}
+
+                            <span>
+                                <a class="btn btn-primary" title="Ver domíminio" href="#">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+
+                                <form action="/cloudflare/{{  $conta->id }}/purge-all" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id_cloudflare" value="{{ $response['result'][$i]['id'] }}">
+
+                                    <button type="submit" class="btn btn-danger" title="Limpar cache">
+                                        <i class="fas fa-broom"></i>
+                                    </button>
+                                </form>
+                            </span>
                         </li>
                     @endfor
                 @endif
