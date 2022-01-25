@@ -8,18 +8,18 @@ class ApiCloudflare{
 
     public function getZones($conta)
     {
-        $reponse = Http::withHeaders([
+        $response = Http::withHeaders([
             'X-Auth-Key'   => $conta->chave_api,
             'X-Auth-Email' => $conta->email,
             'Content-Type' => 'application/json'
         ])->get("https://api.cloudflare.com/client/v4/zones/")['result'];
 
-        return $reponse;
+        return $response;
     }
 
     public function purgeAll($conta, $id)
     {
-        $reponse = Http::withHeaders([
+        $response = Http::withHeaders([
             'X-Auth-Key'   => $conta->chave_api,
             'X-Auth-Email' => $conta->email,
             'Content-Type' => 'application/json'
@@ -27,7 +27,10 @@ class ApiCloudflare{
             'purge_everything' => true
         ]);
 
-        return $reponse;
+        $response = json_decode($response, true);
+        $mensagem = $response['success'] == true ? 'Cache limpado com sucesso!' : 'Erro na solicitação!';
+        
+        return $mensagem;
     }
 
 
