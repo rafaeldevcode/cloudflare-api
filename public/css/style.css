@@ -171,13 +171,13 @@ aside:hover{
         transform: rotate(0);
     }
     100%{
-        transform: rotate(-180deg);
+        transform: rotate(180deg);
     }
 }
 
 @keyframes rotateReverse {
     0%{
-        transform: rotate(-180deg);
+        transform: rotate(180deg);
     }
     100%{
         transform: rotate(0);

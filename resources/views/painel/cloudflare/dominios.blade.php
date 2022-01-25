@@ -48,7 +48,7 @@
                                 </span>
                             </div>
 
-                            <form hidden class="form-limpar-urls" action="/cloudflare/{{ $conta->id }}/purge" class="mt-2" method="POST">
+                            <form hidden class="form-limpar-urls mt-2" action="/cloudflare/{{ $conta->id }}/purge" method="POST">
                                 <div class="d-flex justify-content-between align-items-start">
                                     @csrf
                                     <input type="hidden" name="id_cloudflare" value="{{ $response['result'][$i]['id'] }}">
