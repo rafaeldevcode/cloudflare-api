@@ -37,7 +37,7 @@ class CloudflareController extends Controller
         $mensagem = $request->session()->get('mensagem');
 
         $response = json_decode($conectar->getZones($conta), true);
-        dd($response);
+        // dd($response);
 
         return view('painel/cloudflare/dominios', compact('usuario', 'conta', 'response', 'mensagem'));
     }
