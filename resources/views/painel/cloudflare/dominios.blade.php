@@ -11,14 +11,14 @@
             </div>
 
             <ul class="list-group col-12 col-md-8 col-lg-6 mt-5 m-auto">
-                @if (empty($response['result'][0]))
+                @if (empty($response[0]))
                     <li class="list-group-item border border-cloudflare mb-3 rounded">
                         Nenhum domínio cadastrado para esta conta!
                     </li>
                 @else
-                    @for ($i = 0; $i < count($response['result']); $i++)
+                    @for ($i = 0; $i < count($response); $i++)
                         <li class="list-group-item border border-cloudflare mb-3 rounded text-cloudflare d-flex justify-content-between align-items-center">
-                            {{ $response['result'][$i]['name'] }}
+                            {{ $response[$i]['name'] }}
 
                             <span class="d-flex">
                                 <a class="btn btn-primary" title="Ver domíminio" href="#">
@@ -27,7 +27,7 @@
 
                                 <form action="/cloudflare/{{  $conta->id }}/purge-all" method="POST" class="ms-2">
                                     @csrf
-                                    <input type="hidden" name="id_cloudflare" value="{{ $response['result'][$i]['id'] }}">
+                                    <input type="hidden" name="id_cloudflare" value="{{ $response[$i]['id'] }}">
 
                                     <button type="submit" class="btn btn-danger" title="Limpar cache">
                                         <i class="fas fa-broom"></i>

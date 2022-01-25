@@ -43,10 +43,9 @@ class CloudflareController extends Controller
 
     public function purgeAll(int $ID, ApiCloudflare $conectar, Request $request)
     {
-        $usuario = Auth::user();
         $conta = Cloudflare::find($ID);
         $id_cloudflare = $request->id_cloudflare;
-        $response = $conectar->purgeAll($conta, $id_cloudflare);
+        $response = json_decode($conectar->purgeAll($conta, $id_cloudflare));
 
         dd($response);
     }

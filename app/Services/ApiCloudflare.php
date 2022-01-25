@@ -12,7 +12,7 @@ class ApiCloudflare{
             'X-Auth-Key'   => $conta->chave_api,
             'X-Auth-Email' => $conta->email,
             'Content-Type' => 'application/json'
-        ])->get("https://api.cloudflare.com/client/v4/zones/");
+        ])->get("https://api.cloudflare.com/client/v4/zones/")['result'];
 
         return $reponse;
     }
