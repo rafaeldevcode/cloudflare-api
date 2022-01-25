@@ -54,7 +54,7 @@
                         </button>
                     </form>
 
-                    <form action="/cloudflare/proxima-pagina/{{ $response['result_info']['page']+1 }}" method="GET">
+                    <form action="/cloudflare/{{ $conta->id }}/proxima-pagina/?page={{ $response['result_info']['page']+1 }}" method="GET">
                         <button {{ $response['result_info']['page'] == $response['result_info']['total_pages'] ? 'disabled' : '' }} title="Próximo" type="submit" class="btn btn-success m-1">
                             Próximo
                             <i class="fas fa-step-forward"></i>

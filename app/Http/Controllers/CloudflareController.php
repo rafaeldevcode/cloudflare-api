@@ -15,6 +15,7 @@ class CloudflareController extends Controller
         $this->middleware('Autenticador');
     }
 
+    //////// CADASTRAR NOVA CONTA CLOUDFLARE ///////
     public function index()
     {
         $usuario = Auth::user();
@@ -22,6 +23,7 @@ class CloudflareController extends Controller
         return view('painel/cloudflare/index', compact('usuario'));
     }
 
+    ///////////// GUARDAR CONTA NO BD ////////////
     public function store(Request $request, int $ID, Adicionar $adicionar)
     {
         $adicionar->adicionarContaCloudflare($request, $ID);
@@ -30,17 +32,31 @@ class CloudflareController extends Controller
         return redirect('/painel');
     }
 
+    //////// LISTAR OS DOMINIOS - PAGINAÇÃO //////////
     public function dominios(int $ID, ApiCloudflare $conectar, Request $request)
     {
         $usuario = Auth::user();
         $conta = Cloudflare::find($ID);
         $mensagem = $request->session()->get('mensagem');
 
-        $response = json_decode($conectar->getZones($conta), true);
+        $response = json_decode($conectar->getZones($conta, 1), true);
 
         return view('painel/cloudflare/dominios', compact('usuario', 'conta', 'response', 'mensagem'));
     }
 
+    ////////// PRÓXIMA PÁGINA ///////////
+    public function proximaPagina(int $ID, ApiCloudflare $conectar, Request $request)
+    {
+        $usuario = Auth::user();
+        $conta = Cloudflare::find($ID);
+        $page = $request->query('page');
+
+        $response = json_decode($conectar->getZones($conta, $page), true);
+        
+        return view('painel/cloudflare/dominios', compact('usuario', 'conta', 'response'));
+    }
+
+    /////////// LIMPAR O CACHE DO DOMINIO //////////
     public function purgeAll(int $ID, ApiCloudflare $conectar, Request $request)
     {
         $conta = Cloudflare::find($ID);
