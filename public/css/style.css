@@ -113,6 +113,11 @@ aside:hover{
     animation: opacidadeReversa .4s linear forwards;
 }
 
+.header-list{
+    font-size: .8em;
+    color: #7a7a7a;
+}
+
 @keyframes animacaoEntrada {
     0%{
         opacity: 0;

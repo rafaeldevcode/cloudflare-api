@@ -45,19 +45,6 @@ class CloudflareController extends Controller
         return view('painel/cloudflare/dominios', compact('usuario', 'conta', 'response', 'mensagem'));
     }
 
-    // ////////// PRÓXIMA PÁGINA ///////////
-    // public function proximaPagina(int $ID, ApiCloudflare $conectar, Request $request)
-    // {
-    //     $usuario = Auth::user();
-    //     $conta = Cloudflare::find($ID);
-    //     $page = $request->query('page');
-    //     $mensagem = $request->session()->get('mensagem');
-
-    //     $response = json_decode($conectar->getZones($conta, $page), true);
-
-    //     return view('painel/cloudflare/dominios', compact('usuario', 'conta', 'response', 'mensagem'));
-    // }
-
     /////////// LIMPAR O CACHE DO DOMINIO //////////
     public function purgeAll(int $ID, ApiCloudflare $conectar, Request $request)
     {
