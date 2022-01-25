@@ -39,7 +39,9 @@ class ApiCloudflare{
             'X-Auth-Key'   => $conta->chave_api,
             'X-Auth-Email' => $conta->email,
             'Content-Type' => 'application/json'
-        ])->post("https://api.cloudflare.com/client/v4/zones/{$id}/purge_cache/", $urls);
+        ])->post("https://api.cloudflare.com/client/v4/zones/{$id}/purge_cache/", [
+            'files' => $urls
+        ]);
 
         return $response;
     }
