@@ -16,7 +16,7 @@
                 <li class="header-list list-group-item mb-3 rounded d-flex justify-content-between align-items-center">
                     Domínio
                     <span class="d-flex">
-                        <p class="m-1">Limpar chache de urls</p>
+                        <p class="m-1">Limpar chache por urls | </p>
 
                         <p class="m-1">Limpar cache do domínio</p>
                     </span>
@@ -32,8 +32,8 @@
                             {{ $response['result'][$i]['name'] }}
 
                             <span class="d-flex">
-                                <a class="btn btn-primary" title="Ver domíminio" href="#">
-                                    <i class="fas fa-eye"></i>
+                                <a class="btn btn-cloudflare" title="Limpar cache por urls" href="#">
+                                    <i class="fas fa-sort-down"></i>
                                 </a>
 
                                 <form action="/cloudflare/{{  $conta->id }}/purge-all" method="POST" class="ms-2">
