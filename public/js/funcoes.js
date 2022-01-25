@@ -55,13 +55,21 @@ function abilitarFormulario(){
             if(formLimparUrls[i].hasAttribute('hidden')){
                 formLimparUrls[i].removeAttribute('hidden');
 
+                formLimparUrls[i].classList.remove('dawnReverse')
+                formLimparUrls[i].classList.add('dawn')
+
                 arrow[i].classList.remove('rotateReverse');
                 arrow[i].classList.add('rotate');
             }else{
-                formLimparUrls[i].hidden = true;
-
                 arrow[i].classList.remove('rotate');
                 arrow[i].classList.add('rotateReverse');
+
+                formLimparUrls[i].classList.remove('dawn')
+                formLimparUrls[i].classList.add('dawnReverse')
+
+                setTimeout(() => {
+                    formLimparUrls[i].hidden = true;
+                }, 400);
             }
         });
     }

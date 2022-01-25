@@ -126,6 +126,14 @@ aside:hover{
     animation: rotateReverse .4s linear forwards;
 }
 
+.dawn{
+    animation: dawn .4s linear forwards;
+}
+
+.dawnReverse{
+    animation: dawnReverse .4s linear forwards;
+}
+
 @keyframes animacaoEntrada {
     0%{
         opacity: 0;
@@ -181,6 +189,28 @@ aside:hover{
     }
     100%{
         transform: rotate(0);
+    }
+}
+
+@keyframes dawn {
+    0%{
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes dawnReverse {
+    0%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-50px);
     }
 }
 
