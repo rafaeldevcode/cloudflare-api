@@ -24,7 +24,7 @@ class ApiCloudflare{
             '--data'       => [
                 'purge_everything' => true
             ]
-        ])->post("https://api.cloudflare.com/client/v4/zones/{$id}/purge_cache/");
+        ])->post("https://api.cloudflare.com/client/v4/zones/{$id}/purge_cache");
 
         return $reponse;
     }
