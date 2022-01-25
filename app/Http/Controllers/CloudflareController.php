@@ -36,7 +36,7 @@ class CloudflareController extends Controller
         $conta = Cloudflare::find($ID);
         $mensagem = $request->session()->get('mensagem');
 
-        $response = $conectar->getZones($conta);
+        $response = json_decode($conectar->getZones($conta), true);
         dd($response);
 
         return view('painel/cloudflare/dominios', compact('usuario', 'conta', 'response', 'mensagem'));
