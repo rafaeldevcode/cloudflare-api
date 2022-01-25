@@ -41,3 +41,26 @@ function retornarAno() {
 
     return ano;
 }
+
+/////////// ABILITAR FORMULÁRIO PARA LIMPAR URLS //////////
+function abilitarFormulario(){
+    let limparUrls = document.querySelectorAll('.limpar-urls');
+    let formLimparUrls = document.querySelectorAll('.form-limpar-urls');
+    let arrow = document.querySelectorAll('.arrow');
+
+    for(let i = 0; i < limparUrls.length; i++){
+        limparUrls[i].addEventListener('click', ()=>{
+            if(formLimparUrls[i].hasAttribute){
+                formLimparUrls[i].removeAttribute('hidden');
+
+                arrow[i].classList.remove('rotateReverse');
+                arrow[i].classList.add('rotate');
+            }else{
+                formLimparUrls[i].hidden = true;
+
+                arrow[i].classList.remove('rotate');
+                arrow[i].classList.add('rotateReverse');
+            }
+        });
+    }
+}

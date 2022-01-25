@@ -33,8 +33,8 @@
                                 {{ $response['result'][$i]['name'] }}
 
                                 <span class="d-flex">
-                                    <a class="btn btn-cloudflare" title="Limpar cache por urls" href="#">
-                                        <i class="fas fa-sort-down"></i>
+                                    <a class="btn btn-cloudflare limpar-urls" title="Limpar cache por urls" href="#">
+                                        <i class="fas fa-sort-down arrow"></i>
                                     </a>
     
                                     <form action="/cloudflare/{{  $conta->id }}/purge-all" method="POST" class="ms-2">
@@ -48,8 +48,11 @@
                                 </span>
                             </div>
 
-                            <form action="?" class="mt-2" method="POST">
+                            <form hidden class="form-limpar-urls" action="/cloudflare/{{ $conta->id }}/purge" class="mt-2" method="POST">
                                 <div class="d-flex justify-content-between align-items-start">
+                                    @csrf
+                                    <input type="hidden" name="id_cloudflare" value="{{ $response['result'][$i]['id'] }}">
+
                                     <div class="form-floating col-9">
                                         <textarea class="form-control" placeholder="Uma URL por linha" id="floatingTextarea"></textarea>
                                         <label for="floatingTextarea">Digite uma url por linha</label>
@@ -97,4 +100,8 @@
     </main>
 
     @include('layouts/componentes/footer')
+
+    <script type="text/javascript">
+        abilitarFormulario();
+    </script>
 @endsection

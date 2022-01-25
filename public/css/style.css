@@ -118,6 +118,14 @@ aside:hover{
     color: #7a7a7a;
 }
 
+.rotate{
+    animation: rotate .4s linear forwards;
+}
+
+.rotateReverse{
+    animation: rotateReverse .4s linear forwards;
+}
+
 @keyframes animacaoEntrada {
     0%{
         opacity: 0;
@@ -158,6 +166,25 @@ aside:hover{
     }
 }
 
+@keyframes rotate {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(-180deg);
+    }
+}
+
+@keyframes rotateReverse {
+    0%{
+        transform: rotate(-180deg);
+    }
+    100%{
+        transform: rotate(0);
+    }
+}
+
+/* ////////// MEDIA SCREEN ///////// */
 @media only screen and (max-width: 770px){
     aside{
         right: -60px;
