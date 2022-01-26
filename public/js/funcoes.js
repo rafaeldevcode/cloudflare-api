@@ -89,22 +89,21 @@ function abilitarLimpezaPorUrl(){
             }
         }
 
-        marcarTodosInputCheck(abilitar);
+        marcarTodosInputCheck();
     });
 }
 
 ////////// MARCAR TODOS OS DOMINIOS COMO CHECKED ///////////
-function marcarTodosInputCheck(abilitar){
+function marcarTodosInputCheck(){
     document.getElementById('flexCheckChecked').addEventListener('click', ()=>{
-        for(let i = 0; i < abilitar.length; i++){
+        let checked = document.querySelectorAll('input[type="checkbox"]');
 
-            // if(abilitar[i].type = 'checkbox'){
-                if(abilitar[i].hasAttribute('checked')){
-                    abilitar[i].removeAttribute('checked');
-                }else{
-                    abilitar[i].checked = true;
-                }
-            // }
+        for(let i = 0; i < checked.length; i++){
+            if(checked[i].hasAttribute('checked')){
+                checked[i].removeAttribute('checked');
+            }else{
+                checked[i].setAttribute('checked', '');
+            }
         }
     });
 }
