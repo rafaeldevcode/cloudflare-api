@@ -158,12 +158,11 @@ function limparUrlsSelecionadas(){
 ////////// EXIBIR MENSAGEM ////////////
 function exibirMensagem(mensagem, cor){
     window.scrollTo({top:0, left:0, behavior:'smooth'});
-    document.getElementById('remover-mensagem').remove();
     let divMensagem = document.querySelector('.mensagem');
     let div = document.createElement('div');
+        divMensagem.removeChild();
 
-        div.setAttribute('class', `alert alert-${cor}`)
-        div.setAttribute('id', 'remover-mensagem');
+        div.setAttribute('class', `alert alert-${cor}`);
         div.innerHTML = mensagem;
 
     divMensagem.appendChild(div)
