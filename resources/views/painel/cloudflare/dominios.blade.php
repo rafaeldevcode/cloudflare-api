@@ -15,12 +15,12 @@
             <ul class="list-group col-12 col-md-10 col-lg-8 mt-5 m-auto">
                 <li class="header-list list-group-item mb-3 rounded d-flex justify-content-between align-items-center">
                     Domínio
-                    <span class="d-flex">
+                    <span class="d-flex align-items-center">
                         <p class="m-1">Limpar chache por urls | </p>
 
                         <p class="m-1">Limpar cache do domínio</p>
 
-                        <div class="form-check form-switch p-1 m-auto">
+                        <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
                         </div>
                     </span>
@@ -48,6 +48,10 @@
                                         <button type="submit" class="btn btn-danger" title="Limpar cache">
                                             <i class="fas fa-broom"></i>
                                         </button>
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="{{ $response['result'][$i]['id'] }}" id="flexCheckChecked">
+                                        </div>
                                     </form>
                                 </span>
                             </div>
