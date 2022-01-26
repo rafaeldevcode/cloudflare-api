@@ -98,13 +98,13 @@ function marcarTodosInputCheck(abilitar){
     document.getElementById('flexCheckChecked').addEventListener('click', ()=>{
         for(let i = 0; i < abilitar.length; i++){
 
-            if(abilitar[i].type = 'checkbox'){
+            // if(abilitar[i].type = 'checkbox'){
                 if(abilitar[i].hasAttribute('checked')){
                     abilitar[i].removeAttribute('checked');
                 }else{
                     abilitar[i].checked = true;
                 }
-            }
+            // }
         }
     });
 }
