@@ -112,6 +112,7 @@ function marcarTodosInputCheck(){
 function limparUrlsSelecionadas(){
     let urls = [];
     document.getElementById('limpar-urls-selecionadas').addEventListener('click', ()=>{
+        let mensagem = document.querySelector('.mensagem');
         let urlsSelecionadas = document.querySelectorAll('input[type="checkbox"]');
         let id = document.getElementById('id').value
         let token = document.querySelector('.btn-limpar-urls-selecionadas > input[name="_token"]').value;
@@ -127,31 +128,41 @@ function limparUrlsSelecionadas(){
             }
         }
 
-        formData.append('_token', token);
-        formData.append('urls', urls);
+        if(urls == ''){
+            div.setAttribute('class', 'alert alert-danger')
+            div.innerHTML = 'Nenhuma domínio selecionado!';
 
-        fetch(url, {
-            method: 'POST',
-            body: formData
-        }).then((response)=>{
-            let mensagem = document.querySelector('.mensagem');
-
-            if(response.ok){
-                window.scrollTo({top:0, left:0, behavior:'smooth'});
-
-                let div = document.createElement('div');
-                    div.setAttribute('class', 'alert alert-success')
-                    div.innerHTML = 'Cache limpado com sucesso!';
-
+            mensagem.appendChild(div)
+        }else{
+            formData.append('_token', token);
+            formData.append('urls', urls);
+    
+            fetch(url, {
+                method: 'POST',
+                body: formData
+            }).then((response)=>{
+    
+                for(let i = 0; i < urls.length; i++){
+                    urls[i].checked = false;
+                };
+    
+                if(response.ok){
+                    window.scrollTo({top:0, left:0, behavior:'smooth'});
+    
+                    let div = document.createElement('div');
+                        div.setAttribute('class', 'alert alert-success')
+                        div.innerHTML = 'Cache limpado com sucesso!';
+    
+                        mensagem.appendChild(div)
+                }else{
+                    div.setAttribute('class', 'alert alert-danger')
+                    div.innerHTML = 'Erro ao efetuar amlimpeza de cache!';
+    
                     mensagem.appendChild(div)
-            }else{
-                div.setAttribute('class', 'alert alert-danger')
-                div.innerHTML = 'Erro ao efetuar amlimpeza de cache!';
-
-                mensagem.appendChild(div)
-            }
-        }).catch(function(error){
-            console.error(`Ocorreu um problema com sua operação de busca: ${error.message}`);
-        });
+                }
+            }).catch(function(error){
+                console.error(`Ocorreu um problema com sua operação de busca: ${error.message}`);
+            });
+        }
     })
 }
