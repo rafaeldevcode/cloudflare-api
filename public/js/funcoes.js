@@ -138,7 +138,8 @@ function limparUrlsSelecionadas(){
                 method: 'POST',
                 body: formData
             }).then((response)=>{
-    
+                console.log(response);
+                return
                 limparInputsSelecionados(urlsSelecionadas);
 
                 if(response.ok){
