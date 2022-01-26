@@ -107,3 +107,10 @@ function marcarTodosInputCheck(){
         }
     });
 }
+
+//////////// REQUISIÇÃO PARA LIMPAR AS URLS SELECIONADAS ////////////
+function limparUrlSelecionadas(){
+    let urlsSelecionadas = document.querySelectorAll('.abilitar').value
+
+    console.log(urlsSelecionadas);
+}

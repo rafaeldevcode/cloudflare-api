@@ -55,7 +55,7 @@
                                     </form>
 
                                     <div hidden class="form-check m-auto abilitar">
-                                        <input class="form-check-input ms-1" type="checkbox" value="{{ $response['result'][$i]['id'] }}">
+                                        <input class="form-check-input ms-1" type="checkbox" name="id_cloudflare[]" value="{{ $response['result'][$i]['id'] }}">
                                     </div>
                                 </span>
                             </div>
@@ -83,7 +83,7 @@
             </ul>
 
             <div class="col-12 col-md-10 col-lg-8 m-auto d-flex justify-content-end">
-                <button hidden title="Limpar URLs" type="button" class="btn btn-danger abilitar">
+                <button hidden title="Limpar URLs" type="button" class="btn btn-danger abilitar" id="limpar-urls-selecionadas">
                     Limpar URLs
                 </button>
             </div>
@@ -122,5 +122,6 @@
     <script type="text/javascript">
         abilitarFormulario();
         abilitarLimpezaPorUrl();
+        limparUrlSelecionadas();
     </script>
 @endsection
