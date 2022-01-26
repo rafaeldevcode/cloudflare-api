@@ -128,7 +128,7 @@ function limparUrlsSelecionadas(){
             }
         }
 
-        if(urls.length = 0){
+        if(urls == ''){
             window.scrollTo({top:0, left:0, behavior:'smooth'});
 
             div.setAttribute('class', 'alert alert-danger')
@@ -145,8 +145,8 @@ function limparUrlsSelecionadas(){
             }).then((response)=>{
                 window.scrollTo({top:0, left:0, behavior:'smooth'});
     
-                for(let i = 0; i < urls.length; i++){
-                    urls[i].checked = 0;
+                for(let i = 0; i < urlsSelecionadas.length; i++){
+                    urlsSelecionadas[i].checked = false;
                 };
     
                 if(response.ok){
