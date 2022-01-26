@@ -114,12 +114,9 @@ function limparUrlsSelecionadas(){
     document.getElementById('limpar-urls-selecionadas').addEventListener('click', ()=>{
         let urlsSelecionadas = document.querySelectorAll('input[type="checkbox"]');
         let id = document.getElementById('id').value
-        let token = document.querySelector('.btn-limpar-urls-selecionadas > input[name="_token"]');
+        let token = document.querySelector('.btn-limpar-urls-selecionadas > input[name="_token"]').value;
         let url = `/cloudflare/${id}/purge-urls-selecionadas`;
         let formData = new FormData();
-
-        alert(token);
-        return;
 
         for(let i = 0; i < urlsSelecionadas.length; i++){
             if((urlsSelecionadas[i].checked === true) && 
