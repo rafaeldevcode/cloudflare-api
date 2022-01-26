@@ -51,6 +51,8 @@ class ApiCloudflare{
 
     public function purgeUrlsSelecionadas($conta, $urls)
     {
+        $responses = [];
+
         foreach($urls as $url){
             $response = Http::withHeaders([
                 'X-Auth-Key'   => $conta->chave_api,
@@ -59,8 +61,10 @@ class ApiCloudflare{
             ])->post("https://api.cloudflare.com/client/v4/zones/{$url}/purge_cache/", [
                 'purge_everything' => true
             ]);
-
+            array_push($responses, $response);
             sleep(2);
         }
+
+        return $responses;
     }
 }

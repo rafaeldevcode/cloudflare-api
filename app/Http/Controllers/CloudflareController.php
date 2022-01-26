@@ -74,8 +74,8 @@ class CloudflareController extends Controller
     {
         $conta = Cloudflare::find($ID);
         $urls = $request->urls;
+        $response = $conectar->purgeUrlsSelecionadas($conta, $urls);
 
-        dd($urls);
-        $conectar->purgeUrlsSelecionadas($conta, $urls);
+        dd($response);
     }
 }
