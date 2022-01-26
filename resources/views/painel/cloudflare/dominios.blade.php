@@ -50,7 +50,7 @@
                                         </button>
                                     </form>
 
-                                    <div class="form-check m-auto">
+                                    <div hidden class="form-check m-auto abilitar">
                                         <input class="form-check-input ms-1" type="checkbox" value="{{ $response['result'][$i]['id'] }}" id="flexCheckChecked">
                                     </div>
                                 </span>
@@ -78,8 +78,8 @@
                 @endif
             </ul>
 
-            <div class="col-12 col-md-10 col-lg-8 m-auto">
-                <button title="Limpar URLs" type="button" class="btn btn-danger">
+            <div class="col-12 col-md-10 col-lg-8 m-auto d-flex justify-content-end">
+                <button hidden title="Limpar URLs" type="button" class="btn btn-danger abilitar">
                     Limpar URLs
                 </button>
             </div>
@@ -117,5 +117,6 @@
 
     <script type="text/javascript">
         abilitarFormulario();
+        abilitarLimpezaPorUrl();
     </script>
 @endsection
