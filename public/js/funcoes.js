@@ -128,7 +128,9 @@ function limparUrlsSelecionadas(){
             }
         }
 
-        if(urls == ''){
+        if(urls.length = 0){
+            window.scrollTo({top:0, left:0, behavior:'smooth'});
+
             div.setAttribute('class', 'alert alert-danger')
             div.innerHTML = 'Nenhuma domínio selecionado!';
 
@@ -141,13 +143,13 @@ function limparUrlsSelecionadas(){
                 method: 'POST',
                 body: formData
             }).then((response)=>{
+                window.scrollTo({top:0, left:0, behavior:'smooth'});
     
                 for(let i = 0; i < urls.length; i++){
-                    urls[i].checked = false;
+                    urls[i].checked = 0;
                 };
     
                 if(response.ok){
-                    window.scrollTo({top:0, left:0, behavior:'smooth'});
     
                     let div = document.createElement('div');
                         div.setAttribute('class', 'alert alert-success')
