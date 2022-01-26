@@ -73,7 +73,7 @@ class CloudflareController extends Controller
     public function purgeUrlsSelecionadas(int $ID, Request $request, ApiCloudflare $conectar)
     {
         $conta = Cloudflare::find($ID);
-        $urls = $request->urls;
+        $urls[] = $request->urls;
         $conectar->purgeUrlsSelecionadas($conta, $urls);
     }
 }

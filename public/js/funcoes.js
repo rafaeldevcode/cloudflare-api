@@ -110,7 +110,6 @@ function marcarTodosInputCheck(){
 
 //////////// REQUISIÇÃO PARA LIMPAR AS URLS SELECIONADAS ////////////
 function limparUrlsSelecionadas(){
-    let urls = [];
     document.getElementById('limpar-urls-selecionadas').addEventListener('click', ()=>{
         let urlsSelecionadas = document.querySelectorAll('input[type="checkbox"]');
         let id = document.getElementById('id').value
