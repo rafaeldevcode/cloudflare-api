@@ -55,7 +55,7 @@
                                     </form>
 
                                     <div hidden class="form-check m-auto abilitar">
-                                        <input class="form-check-input ms-1" type="checkbox" name="id_cloudflare[]" value="{{ $response['result'][$i]['id'] }}">
+                                        <input class="form-check-input ms-1" type="checkbox" value="{{ $response['result'][$i]['id'] }}">
                                     </div>
                                 </span>
                             </div>
