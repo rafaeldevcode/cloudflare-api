@@ -62,6 +62,7 @@ class ApiCloudflare{
                 'purge_everything' => true
             ]);
             array_push($responses, json_decode($response, true));
+            sleep(2);
         }
 
         return $responses;
