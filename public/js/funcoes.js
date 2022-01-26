@@ -127,9 +127,6 @@ function limparUrlsSelecionadas(){
             }
         }
 
-        console.log(urls);
-        return
-
         if(urls == ''){
 
             exibirMensagem('Nenhuma domínio selecionado!', 'danger');
