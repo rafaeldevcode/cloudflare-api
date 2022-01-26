@@ -20,7 +20,7 @@
 
                         <p class="m-1">Limpar cache do domínio</p>
 
-                        <div class="form-check form-switch">
+                        <div class="form-check form-switch p-1 m-0 d-flex align-items-center">
                             <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
                         </div>
                     </span>
