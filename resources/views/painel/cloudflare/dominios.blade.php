@@ -122,8 +122,8 @@
     <script type="text/javascript">
         abilitarFormulario();
         abilitarLimpezaPorUrl();
-        let urlsSelecionadas = document.querySelectorAll('.abilitar').value
+        let urlsSelecionadas = document.querySelectorAll('input[type="checkbox"]').value
 
-console.log(urlsSelecionadas);
+        console.log(urlsSelecionadas);
     </script>
 @endsection
