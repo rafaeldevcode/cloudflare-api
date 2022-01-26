@@ -110,9 +110,16 @@ function marcarTodosInputCheck(){
 
 //////////// REQUISIÇÃO PARA LIMPAR AS URLS SELECIONADAS ////////////
 function limparUrlsSelecionadas(){
+    let urls = [];
     document.getElementById('limpar-urls-selecionadas').addEventListener('click', ()=>{
-        let urlsSelecionadas = document.querySelectorAll('input[type="checkbox"]').value
+        let urlsSelecionadas = document.querySelectorAll('input[type="checkbox"]');
 
-        console.log(urlsSelecionadas);
+        for(let i = 0; i < urlsSelecionadas.length; i++){
+            if(urlsSelecionadas[i].ariaChecked = true){
+                urls.push(urlsSelecionadas[i].value);
+            }
+        }
+
+        console.log(urls);
     })
 }
