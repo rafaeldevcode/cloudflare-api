@@ -137,6 +137,8 @@ function limparUrlsSelecionadas(){
             let mensagem = document.querySelector('.mensagem');
 
             if(response.ok){
+                window.scrollTo({top:0, left:0, behavior:'smooth'});
+
                 let div = document.createElement('div');
                     div.setAttribute('class', 'alert alert-success')
                     div.innerHTML = 'Cache limpado com sucesso!';
