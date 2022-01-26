@@ -70,10 +70,12 @@ class CloudflareController extends Controller
     }
 
     ////////// LIMPAR CACHES POR URLS SELECIONADAS /////////
-    public function purgeUrlsSelecionadas(Request $request)
+    public function purgeUrlsSelecionadas(int $ID, Request $request, ApiCloudflare $conectar)
     {
-        $data = $request->except('_token');
+        $conta = Cloudflare::find($ID);
+        $urls = $request->urls;
 
-        return $data;
+        dd($urls);
+        $conectar->purgeUrlsSelecionadas($conta, $urls);
     }
 }
