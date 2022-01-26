@@ -113,16 +113,28 @@ function limparUrlsSelecionadas(){
     let urls = [];
     document.getElementById('limpar-urls-selecionadas').addEventListener('click', ()=>{
         let urlsSelecionadas = document.querySelectorAll('input[type="checkbox"]');
+        let id = document.getElementById('id').value
+        let token = document.querySelector('.btn-limpar-urls-selecionadas > input[name="_token"]');
+        let url = `/cloudflare/${id}/purge-urls-selecionadas`;
+        let formData = new formData;
 
         for(let i = 0; i < urlsSelecionadas.length; i++){
             if((urlsSelecionadas[i].checked === true) && 
                 (urlsSelecionadas[i].value !== 'on') && 
                 (urlsSelecionadas[i].value !== '')){
-                    
+
                 urls.push(urlsSelecionadas[i].value);
             }
         }
 
-        console.log(urls);
+        formData.append('_token', token);
+        formData.append('urls', urls);
+
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        }).then(()=>{
+            console.log('Teste');
+        })
     })
 }

@@ -82,7 +82,10 @@
                 @endif
             </ul>
 
-            <div class="col-12 col-md-10 col-lg-8 m-auto d-flex justify-content-end">
+            <div class="col-12 col-md-10 col-lg-8 m-auto d-flex justify-content-end btn-limpar-urls-selecionadas">
+                @csrf
+                <input type="hidden" id="id" value="{{ $conta->id }}">
+
                 <button hidden title="Limpar URLs" type="button" class="btn btn-danger abilitar" id="limpar-urls-selecionadas">
                     Limpar URLs
                 </button>

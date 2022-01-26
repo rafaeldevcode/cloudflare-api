@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cloudflare;
 use App\Services\{Adicionar, ApiCloudflare};
+use GrahamCampbell\ResultType\Result;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -66,5 +67,13 @@ class CloudflareController extends Controller
         $request->session()->flash('mensagem', $response);
 
         return redirect()->back();
+    }
+
+    ////////// LIMPAR CACHES POR URLS SELECIONADAS /////////
+    public function purgeUrlsSelecionadas(Request $request)
+    {
+        $data = $request->except('_token');
+
+        dd($data);
     }
 }
