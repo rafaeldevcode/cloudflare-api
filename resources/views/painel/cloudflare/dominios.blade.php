@@ -122,6 +122,8 @@
     <script type="text/javascript">
         abilitarFormulario();
         abilitarLimpezaPorUrl();
-        limparUrlSelecionadas();
+        let urlsSelecionadas = document.querySelectorAll('.abilitar').value
+
+console.log(urlsSelecionadas);
     </script>
 @endsection
