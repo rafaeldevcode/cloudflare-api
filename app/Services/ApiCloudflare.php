@@ -79,12 +79,13 @@ class ApiCloudflare{
         $total_pages = $this->retornarTotalPaginas($conta);
         $responses = [];
 
-        for ($i = 0; $i  < $total_pages; $i++) { 
-            array_push($responses, Http::withHeaders([
+        for ($i = 1; $i  <= $total_pages; $i++) { 
+            $response = Http::withHeaders([
                 'X-Auth-Key'   => $conta->chave_api,
                 'X-Auth-Email' => $conta->email,
                 'Content-Type' => 'application/json'
-            ])->get("https://api.cloudflare.com/client/v4/zones/?page={$total_pages[$i]}")['result']);
+            ])->get("https://api.cloudflare.com/client/v4/zones/?page={$total_pages[$i]}")['result'];
+            array_push($responses, $response);
         }
 
         return $responses;
