@@ -127,6 +127,9 @@ function limparUrlsSelecionadas(){
             }
         }
 
+        console.log(urls);
+        return
+
         if(urls == ''){
 
             exibirMensagem('Nenhuma domínio selecionado!', 'danger');
@@ -146,7 +149,7 @@ function limparUrlsSelecionadas(){
                     exibirMensagem('Cache limpado com sucesso!', 'success');
                 }else{
 
-                    exibirMensagem('Erro ao efetuar amlimpeza de cache!', 'danger');
+                    exibirMensagem('Erro ao efetuar a limpeza de cache!', 'danger');
                 }
             }).catch(function(error){
                 console.error(`Ocorreu um problema com sua operação de busca: ${error.message}`);
