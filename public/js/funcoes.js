@@ -112,8 +112,6 @@ function marcarTodosInputCheck(){
 function limparUrlsSelecionadas(){
     let urls = [];
     document.getElementById('limpar-urls-selecionadas').addEventListener('click', ()=>{
-        let mensagem = document.querySelector('.mensagem');
-        let div = document.createElement('div');
         let urlsSelecionadas = document.querySelectorAll('input[type="checkbox"]');
         let id = document.getElementById('id').value
         let token = document.querySelector('.btn-limpar-urls-selecionadas > input[name="_token"]').value;
@@ -130,12 +128,8 @@ function limparUrlsSelecionadas(){
         }
 
         if(urls == ''){
-            window.scrollTo({top:0, left:0, behavior:'smooth'});
 
-            div.setAttribute('class', 'alert alert-danger')
-            div.innerHTML = 'Nenhuma domínio selecionado!';
-
-            mensagem.appendChild(div)
+            exibirMensagem('Nenhuma domínio selecionado!', 'danger');
         }else{
             formData.append('_token', token);
             formData.append('urls', urls);
@@ -144,28 +138,40 @@ function limparUrlsSelecionadas(){
                 method: 'POST',
                 body: formData
             }).then((response)=>{
-                window.scrollTo({top:0, left:0, behavior:'smooth'});
     
-                for(let i = 0; i < urlsSelecionadas.length; i++){
-                    urlsSelecionadas[i].checked = false;
-                };
-    
+                limparInputsSelecionados(urlsSelecionadas);
+
                 if(response.ok){
 
-                        div.setAttribute('class', 'alert alert-success')
-                        div.innerHTML = 'Cache limpado com sucesso!';
-    
-                        mensagem.appendChild(div)
+                    exibirMensagem('Cache limpado com sucesso!', 'success');
                 }else{
 
-                    div.setAttribute('class', 'alert alert-danger')
-                    div.innerHTML = 'Erro ao efetuar amlimpeza de cache!';
-    
-                    mensagem.appendChild(div)
+                    exibirMensagem('Erro ao efetuar amlimpeza de cache!', 'danger');
                 }
             }).catch(function(error){
                 console.error(`Ocorreu um problema com sua operação de busca: ${error.message}`);
             });
         }
     })
+}
+
+////////// EXIBIR MENSAGEM ////////////
+function exibirMensagem(mensagem, cor){
+    window.scrollTo({top:0, left:0, behavior:'smooth'});
+    document.getElementById('remover-mensagem').remove();
+    let divMensagem = document.querySelector('.mensagem');
+    let div = document.createElement('div');
+
+        div.setAttribute('class', `alert alert-${cor}`)
+        div.setAttribute('id', 'remover-mensagem');
+        div.innerHTML = mensagem;
+
+    divMensagem.appendChild(div)
+}
+
+///////////// LIMPAR INPUTS SELECIONADOS ///////////
+function limparInputsSelecionados(urlsSelecionadas){
+    for(let i = 0; i < urlsSelecionadas.length; i++){
+        urlsSelecionadas[i].checked = false;
+    };
 }
