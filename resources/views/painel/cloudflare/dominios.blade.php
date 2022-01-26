@@ -48,11 +48,11 @@
                                         <button type="submit" class="btn btn-danger" title="Limpar cache">
                                             <i class="fas fa-broom"></i>
                                         </button>
-
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="{{ $response['result'][$i]['id'] }}" id="flexCheckChecked">
-                                        </div>
                                     </form>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="{{ $response['result'][$i]['id'] }}" id="flexCheckChecked">
+                                    </div>
                                 </span>
                             </div>
 
