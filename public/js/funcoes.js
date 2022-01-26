@@ -113,6 +113,7 @@ function limparUrlsSelecionadas(){
     let urls = [];
     document.getElementById('limpar-urls-selecionadas').addEventListener('click', ()=>{
         let mensagem = document.querySelector('.mensagem');
+        let div = document.createElement('div');
         let urlsSelecionadas = document.querySelectorAll('input[type="checkbox"]');
         let id = document.getElementById('id').value
         let token = document.querySelector('.btn-limpar-urls-selecionadas > input[name="_token"]').value;
@@ -150,13 +151,13 @@ function limparUrlsSelecionadas(){
                 };
     
                 if(response.ok){
-    
-                    let div = document.createElement('div');
+
                         div.setAttribute('class', 'alert alert-success')
                         div.innerHTML = 'Cache limpado com sucesso!';
     
                         mensagem.appendChild(div)
                 }else{
+
                     div.setAttribute('class', 'alert alert-danger')
                     div.innerHTML = 'Erro ao efetuar amlimpeza de cache!';
     
