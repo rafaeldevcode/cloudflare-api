@@ -79,7 +79,7 @@ function abilitarFormulario(){
 ///////////// ABILITAR INPUTS CHECKBOX PARA LIMPEZA DE VÁRIAS URLS //////////
 function abilitarLimpezaPorUrl(){
     document.getElementById('flexSwitchCheckChecked').addEventListener('click', ()=>{
-        let abilitar = document.querySelectorAll('.abiliatr');
+        let abilitar = document.querySelectorAll('.abilitar');
 
         for(let i = 0; i < abilitar.length; i++){
             if(abilitar[i].hasAttribute('hidden')){

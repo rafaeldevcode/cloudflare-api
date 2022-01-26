@@ -37,7 +37,7 @@
                                 {{ $response['result'][$i]['name'] }}
 
                                 <span class="d-flex">
-                                    <a class="btn btn-cloudflare limpar-urls" title="Limpar cache por urls" href="#">
+                                    <a class="btn btn-cloudflare limpar-urls text-light" title="Limpar cache por urls" href="#">
                                         <i class="fas fa-sort-down arrow"></i>
                                     </a>
     
