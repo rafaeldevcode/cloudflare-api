@@ -44,7 +44,7 @@
 
                     <div class="mt-2 p-2">
                         
-                        <input type="email" class="form-control" name="urls[]" value="766cd9022e5fb63b7ce91d35eb2f3837">
+                        <input type="text" class="form-control" name="urls[]" value="766cd9022e5fb63b7ce91d35eb2f3837">
                     </div>
 
                     <div class="mt-2 p-2">
