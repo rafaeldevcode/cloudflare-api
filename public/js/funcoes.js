@@ -134,7 +134,22 @@ function limparUrlsSelecionadas(){
             method: 'POST',
             body: formData
         }).then((response)=>{
-            console.log(response);
-        })
+            let mensagem = document.querySelector('.mensagem');
+
+            if(response.ok){
+                let div = document.createElement('div');
+                    div.setAttribute('class', 'alert alert-success')
+                    div.innerHTML = 'Cache limpado com sucesso!';
+
+                    mensagem.appendChild(div)
+            }else{
+                div.setAttribute('class', 'alert alert-danger')
+                div.innerHTML = 'Erro ao efetuar amlimpeza de cache!';
+
+                mensagem.appendChild(div)
+            }
+        }).catch(function(error){
+            console.error(`Ocorreu um problema com sua operação de busca: ${error.message}`);
+        });
     })
 }
