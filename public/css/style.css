@@ -44,6 +44,15 @@ footer{
     z-index: 1;
 }
 
+/* /////// NAVEGAÇÃO ASIDE /////// */
+.navegacao{
+    margin-top: 90px;
+}
+
+/* .ocultar-link{
+    opacity: 0;
+} */
+
 .image-logo{
     width: 150px;
 }
@@ -73,6 +82,7 @@ footer{
 .btn-menu{
     position: absolute;
     left: -15px;
+    top: 90px;
     font-size: 20px;
 }
 
@@ -143,6 +153,10 @@ footer{
 
 .dawnReverse{
     animation: dawnReverse .4s linear forwards;
+}
+
+.opacidadeMenuAside{
+    animation: opacidadeMenuAside .3s linear forwards;
 }
 
 @keyframes animacaoEntrada {
@@ -222,6 +236,15 @@ footer{
     100%{
         opacity: 0;
         transform: translateY(-30px);
+    }
+}
+
+@keyframes opacidadeMenuAside{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
     }
 }
 

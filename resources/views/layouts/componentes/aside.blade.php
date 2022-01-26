@@ -2,4 +2,19 @@
     <div class="btn-menu">
         <i class="fas fa-chevron-left"></i>
     </div>
+
+    <nav class="navegacao">
+        <ul class="list-group">
+            <li class="list-group-item p-0 bg-transparent border-0">
+                <a href="/cloudflare/{{ $conta->id }}/adicionar-tag" class="text-decoration-none text-light d-flex flex-row">
+                    <i class="fas fa-plus-circle fs-4"></i>
+                    <p hidden class="m-0 ps-2 exibir-link">Adicionar tag</p>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </aside>
+
+<script type="text/javascript">
+    exibirMenu();
+</script>

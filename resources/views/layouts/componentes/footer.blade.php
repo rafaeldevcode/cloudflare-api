@@ -8,3 +8,7 @@
         </a>
     </p>
 </footer>
+
+<script type="text/javascript">
+    document.getElementById('ano').innerHTML = retornarAno();
+</script>

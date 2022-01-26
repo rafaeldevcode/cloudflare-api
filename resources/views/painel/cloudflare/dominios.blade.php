@@ -10,15 +10,16 @@
         <section class="container my-5">
             <div class="mt-3">
                 <h1 class="text-center fs-3">Dominios cadastrado em <span class="text-cloudflare">{{ $conta->nome }}</span></h1>
+                <p class="m-0">Limpar cache</p>
             </div>
 
             <ul class="list-group col-12 col-md-10 col-lg-8 mt-5 m-auto">
                 <li class="header-list list-group-item mb-3 rounded d-flex justify-content-between align-items-center">
                     Domínio
                     <span class="d-flex align-items-center">
-                        <p class="m-1">Limpar chache por urls | </p>
+                        <p class="m-1">Limpar por urls | </p>
 
-                        <p class="m-1">Limpar cache do domínio</p>
+                        <p class="m-1">Limpar domínio</p>
 
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">

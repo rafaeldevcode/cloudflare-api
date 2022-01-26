@@ -76,4 +76,13 @@ class CloudflareController extends Controller
         $urls[] = $request->urls;
         $conectar->purgeUrlsSelecionadas($conta, $urls);
     }
+
+    //////// ADICIONAR TAG COM URLS PARA LIMPAR LIMPAR CACHE /////////
+    public function adicionarTag(int $ID)
+    {
+        $usuario = Auth::user();
+        $conta = Cloudflare::find($ID);
+
+        return view('painel/cloudflare/adicionarTag', compact('usuario', 'conta'));
+    }
 }

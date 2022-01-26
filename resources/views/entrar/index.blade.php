@@ -2,7 +2,7 @@
 
 @section('conteudo')
     <main class="container m-auto">
-        <section class="rounded shadow-sm shadow-danger mt-5 col-12 col-md-6 m-auto border border-cloudflare">
+        <section class="rounded shadow-sm shadow-danger mt-5 col-12 col-md-10 col-lg-6 m-auto border border-cloudflare">
             <div class="col-10 col-sm-4 m-auto p-3">
                 <img class="img-fluid" src="{{ asset('images/logo.png') }}" alt="Logo">
             </div>
