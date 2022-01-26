@@ -88,9 +88,9 @@ function abilitarLimpezaPorUrl(){
                 abilitar[i].hidden = true;
             }
         }
-    });
 
-    marcarTodosInputCheck(abilitar);
+        marcarTodosInputCheck(abilitar);
+    });
 }
 
 ////////// MARCAR TODOS OS DOMINIOS COMO CHECKED ///////////
