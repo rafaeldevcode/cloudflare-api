@@ -75,14 +75,14 @@
                             </form>
                         </li>
                     @endfor
+
+                    <li class="list-group-item border-none mb-3 rounded">
+                        <button title="Limpar URLs" type="button" class="btn btn-danger">
+                            Limpar URLs
+                        </button>
+                    </li>
                 @endif
             </ul>
-
-            <div class="row d-flex justify-content-end">
-                <button title="Limpar URLs" type="button" class="btn btn-danger">
-                    Limpar URLs
-                </button>
-            </div>
 
             <div>
                 <p class="text-center text-cloudflare m-0">
