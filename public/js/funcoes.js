@@ -110,7 +110,9 @@ function marcarTodosInputCheck(){
 
 //////////// REQUISIÇÃO PARA LIMPAR AS URLS SELECIONADAS ////////////
 function limparUrlSelecionadas(){
-    let urlsSelecionadas = document.querySelectorAll('.abilitar').value
+    document.getElementById('limpar-urls-selecionadas').addEventListener('click', ()=>{
+        let urlsSelecionadas = document.querySelectorAll('.abilitar').value
 
-    console.log(urlsSelecionadas);
+        console.log(urlsSelecionadas);
+    })
 }
