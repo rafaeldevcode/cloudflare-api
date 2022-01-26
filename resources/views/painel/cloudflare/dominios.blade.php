@@ -50,8 +50,8 @@
                                         </button>
                                     </form>
 
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="{{ $response['result'][$i]['id'] }}" id="flexCheckChecked">
+                                    <div class="form-check m-auto">
+                                        <input class="form-check-input ms-1" type="checkbox" value="{{ $response['result'][$i]['id'] }}" id="flexCheckChecked">
                                     </div>
                                 </span>
                             </div>
@@ -77,6 +77,12 @@
                     @endfor
                 @endif
             </ul>
+
+            <div class="row d-flex justify-content-end">
+                <button title="Limpar URLs" type="button" class="btn btn-danger">
+                    Limpar URLs
+                </button>
+            </div>
 
             <div>
                 <p class="text-center text-cloudflare m-0">
