@@ -6,11 +6,14 @@
     <main class="d-flex flex-column">
         <section class="container my-5">
             <div class="col-12 col-md-6 m-auto">
+                <div>
+                    <p class="m-0 fw-bolder text-cloudflare text-center">Adicionar tag</p>
+                </div>
                 <form action="" method="POST" class="form-control border border-cloudflare py-5">
                     @csrf
                     <div class="p-2">
-                        <label for="nome" class="fs-6 text-secondary">Nome</label>
-                        <input type="text" class="form-control" name="nome" placeholder="Adicione um nome para essa conta">
+                        <label for="nome" class="fs-6 text-secondary">Nome da tag</label>
+                        <input type="text" class="form-control" name="nome" placeholder="Adicione um nome para essa tag">
                     </div>
 
                     <div class="mt-3 col-12">

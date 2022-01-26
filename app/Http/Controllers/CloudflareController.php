@@ -78,11 +78,13 @@ class CloudflareController extends Controller
     }
 
     //////// ADICIONAR TAG COM URLS PARA LIMPAR LIMPAR CACHE /////////
-    public function adicionarTag(int $ID)
+    public function adicionarTag(int $ID, ApiCloudflare $conectar)
     {
         $usuario = Auth::user();
         $conta = Cloudflare::find($ID);
+        $response = $conectar->getAllDominios($conta);
+        dd($response);
 
-        return view('painel/cloudflare/adicionarTag', compact('usuario', 'conta'));
+        return view('painel/cloudflare/adicionarTag', compact('usuario', 'conta', 'response'));
     }
 }

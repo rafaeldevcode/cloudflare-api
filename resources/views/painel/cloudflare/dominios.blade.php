@@ -10,7 +10,7 @@
         <section class="container my-5">
             <div class="mt-3">
                 <h1 class="text-center fs-3">Dominios cadastrado em <span class="text-cloudflare">{{ $conta->nome }}</span></h1>
-                <p class="m-0">Limpar cache</p>
+                <p class="m-0 fw-bolder text-cloudflare text-center">Limpar cache</p>
             </div>
 
             <ul class="list-group col-12 col-md-10 col-lg-8 mt-5 m-auto">

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Http;
 
 class ApiCloudflare{
 
+    ////////// PEGAR TODOS OS DOMINIOS POR PAGINACAO ////////////
     public function getZones($conta, $page)
     {
         $response = Http::withHeaders([
@@ -17,6 +18,7 @@ class ApiCloudflare{
         return $response;
     }
 
+    /////////// LIMAPAR CACHE DO DOMINIO ////////////////
     public function purgeAll($conta, $id)
     {
         $response = Http::withHeaders([
@@ -33,6 +35,7 @@ class ApiCloudflare{
         return $mensagem;
     }
 
+    //////////// LIMPAR VARIOS ARQUIVOS SELECIONADOS /////////////////////
     public function purgePorUrl($conta, $id, $urls)
     {
         $response = Http::withHeaders([
@@ -49,6 +52,8 @@ class ApiCloudflare{
         return $mensagem;
     }
 
+
+    //////// LIMPAR CACHE POR URLS SELECIONADAS ////////////
     public function purgeUrlsSelecionadas($conta, $urls)
     {
         $responses = [];
@@ -66,5 +71,34 @@ class ApiCloudflare{
         }
 
         return $responses;
+    }
+
+    //////////// PEGAR TODOS OS DOMINIOS //////////////
+    public function getAllDominios($conta)
+    {
+        $total_pages = $this->retornarTotalPaginas($conta);
+        $responses = [];
+
+        for ($i = 0; $i  < count($total_pages); $i++) { 
+            $response = Http::withHeaders([
+                'X-Auth-Key'   => $conta->chave_api,
+                'X-Auth-Email' => $conta->email,
+                'Content-Type' => 'application/json'
+            ])->get("https://api.cloudflare.com/client/v4/zones/?page={$total_pages[$i]}")['result'];
+            array_push($responses, json_decode($response, true));
+        }
+
+        return $responses;
+    }
+
+    private function retornarTotalPaginas($conta)
+    {
+        $total_pages = Http::withHeaders([
+            'X-Auth-Key'   => $conta->chave_api,
+            'X-Auth-Email' => $conta->email,
+            'Content-Type' => 'application/json'
+        ])->get("https://api.cloudflare.com/client/v4/zones/")['result_info']['total_pages'];
+
+        return $total_pages;
     }
 }
