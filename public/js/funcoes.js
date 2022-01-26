@@ -116,7 +116,7 @@ function limparUrlsSelecionadas(){
         let id = document.getElementById('id').value
         let token = document.querySelector('.btn-limpar-urls-selecionadas > input[name="_token"]');
         let url = `/cloudflare/${id}/purge-urls-selecionadas`;
-        let formData = new formData;
+        let formData = new FormData();
 
         for(let i = 0; i < urlsSelecionadas.length; i++){
             if((urlsSelecionadas[i].checked === true) && 
@@ -133,8 +133,8 @@ function limparUrlsSelecionadas(){
         fetch(url, {
             method: 'POST',
             body: formData
-        }).then(()=>{
-            console.log('Teste');
+        }).then((response)=>{
+            console.log(response);
         })
     })
 }

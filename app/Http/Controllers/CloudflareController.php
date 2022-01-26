@@ -74,6 +74,6 @@ class CloudflareController extends Controller
     {
         $data = $request->except('_token');
 
-        dd($data);
+        return $data;
     }
 }
