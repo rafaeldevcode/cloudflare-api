@@ -2,7 +2,7 @@
 
 @section('conteudo')
     @include('layouts/componentes/header')
-    <main class="d-flex flex-column">
+    <main class="d-flex flex-column position relative">
         <div class="col-12 col-md-10 p-2 m-auto">
             @include('layouts/componentes/mensagem', [$mensagem])
         </div>
@@ -19,6 +19,10 @@
                         <p class="m-1">Limpar chache por urls | </p>
 
                         <p class="m-1">Limpar cache do domínio</p>
+
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                        </div>
                     </span>
                 </li>
                 
