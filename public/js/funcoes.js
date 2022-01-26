@@ -115,7 +115,7 @@ function limparUrlsSelecionadas(){
         let urlsSelecionadas = document.querySelectorAll('input[type="checkbox"]');
 
         for(let i = 0; i < urlsSelecionadas.length; i++){
-            if(urlsSelecionadas[i].ariaChecked = true){
+            if(urlsSelecionadas[i].checked = true){
                 urls.push(urlsSelecionadas[i].value);
             }
         }
