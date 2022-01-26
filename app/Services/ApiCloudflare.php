@@ -84,8 +84,8 @@ class ApiCloudflare{
                 'X-Auth-Key'   => $conta->chave_api,
                 'X-Auth-Email' => $conta->email,
                 'Content-Type' => 'application/json'
-            ])->get("https://api.cloudflare.com/client/v4/zones/?page={$total_pages[$i]}")['result'][$i]['name'];
-            array_push($responses, $response);
+            ])->get("https://api.cloudflare.com/client/v4/zones/?page={$total_pages[$i]}")['result'][0];
+            array_push($responses, $response[$i]);
         }
 
         return $responses;
