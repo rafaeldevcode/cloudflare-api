@@ -61,8 +61,7 @@ class ApiCloudflare{
             ])->post("https://api.cloudflare.com/client/v4/zones/{$url}/purge_cache/", [
                 'purge_everything' => true
             ]);
-            array_push($responses, $response);
-            sleep(2);
+            array_push($responses, json_decode($response, true));
         }
 
         return $responses;
