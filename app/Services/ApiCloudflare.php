@@ -79,8 +79,6 @@ class ApiCloudflare{
         $total_pages = $this->retornarTotalPaginas($conta);
         $responses = [];
 
-        dd($total_pages);
-
         for ($i = 0; $i  < $total_pages; $i++) { 
             array_push($responses, Http::withHeaders([
                 'X-Auth-Key'   => $conta->chave_api,
