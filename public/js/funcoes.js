@@ -115,7 +115,10 @@ function limparUrlsSelecionadas(){
         let urlsSelecionadas = document.querySelectorAll('input[type="checkbox"]');
 
         for(let i = 0; i < urlsSelecionadas.length; i++){
-            if(urlsSelecionadas[i].checked === true){
+            if((urlsSelecionadas[i].checked === true) && 
+                (urlsSelecionadas[i].value !== 'on') && 
+                (urlsSelecionadas[i].value !== '')){
+                    
                 urls.push(urlsSelecionadas[i].value);
             }
         }
