@@ -23,6 +23,10 @@
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
                         </div>
+
+                        <div hidden class="form-check m-auto abilitar">
+                            <input class="form-check-input ms-1" type="checkbox" value="" id="flexCheckChecked">
+                        </div>
                     </span>
                 </li>
                 
