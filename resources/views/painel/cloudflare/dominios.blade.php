@@ -122,6 +122,6 @@
     <script type="text/javascript">
         abilitarFormulario();
         abilitarLimpezaPorUrl();
-        limparUrlSelecionadas();
+        limparUrlsSelecionadas();
     </script>
 @endsection
