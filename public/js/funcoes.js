@@ -171,6 +171,7 @@ function exibirMensagem(mensagem, cor){
 
 ///////////// LIMPAR INPUTS SELECIONADOS ///////////
 function limparInputsSelecionados(urlsSelecionadas){
+    document.getElementById('flexSwitchCheckChecked').click();
     for(let i = 0; i < urlsSelecionadas.length; i++){
         urlsSelecionadas[i].checked = false;
     };
