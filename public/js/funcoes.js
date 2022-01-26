@@ -78,7 +78,7 @@ function abilitarFormulario(){
 
 ///////////// ABILITAR INPUTS CHECKBOX PARA LIMPEZA DE VÁRIAS URLS //////////
 function abilitarLimpezaPorUrl(){
-    document.getElementById('flexSwitchCheckDefault').addEventListener('click', ()=>{
+    document.getElementById('flexSwitchCheckChecked').addEventListener('click', ()=>{
         let abilitar = document.querySelectorAll('.abiliatr');
 
         for(let i = 0; i < abilitar.length; i++){
