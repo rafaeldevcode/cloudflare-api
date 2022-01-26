@@ -117,6 +117,7 @@ function limparUrlsSelecionadas(){
         let token = document.querySelector('.btn-limpar-urls-selecionadas > input[name="_token"]').value;
         let url = `/cloudflare/${id}/purge-urls-selecionadas`;
         let formData = new FormData();
+        let urls = [];
 
         for(let i = 0; i < urlsSelecionadas.length; i++){
             if((urlsSelecionadas[i].checked === true) && 
