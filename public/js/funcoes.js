@@ -160,7 +160,7 @@ function exibirMensagem(mensagem, cor){
     window.scrollTo({top:0, left:0, behavior:'smooth'});
     let divMensagem = document.querySelector('.mensagem');
     let div = document.createElement('div');
-        divMensagem.removeChild();
+        divMensagem.innerHTML = '';
 
         div.setAttribute('class', `alert alert-${cor}`);
         div.innerHTML = mensagem;
