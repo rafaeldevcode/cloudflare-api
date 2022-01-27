@@ -25,7 +25,7 @@
 
                 <section class="container-fluid">
                     @foreach ($response as $item)
-                        @for ($i = 0; $i <= count($item); $i++)
+                        @for ($i = 0; $i < count($item); $i++)
                             {{ print_r($item[$i]['name']) }}
                             <hr>
                         @endfor
