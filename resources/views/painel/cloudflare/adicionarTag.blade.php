@@ -22,6 +22,12 @@
                         </button>
                     </div>
                 </form>
+
+                <section class="container-fluid">
+                    @foreach ($response as $item)
+                        <p>{{$item}}</p>
+                    @endforeach
+                </section>
             </div>
         </section>
     </main>

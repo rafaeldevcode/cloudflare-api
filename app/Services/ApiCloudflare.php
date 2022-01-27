@@ -90,7 +90,7 @@ class ApiCloudflare{
 
         $dominios = $this->recuperarDominios($responses, $total_pages);
 
-        return $dominios;
+        return $responses;
     }
 
     ///////// RETORNAR QUANTAS PAGINAS TEM A REQUISIÇÃO //////////
