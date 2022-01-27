@@ -19,7 +19,7 @@ class ApiCloudflare{
     }
 
     /////////// LIMAPAR CACHE DO DOMINIO ////////////////
-    public function purgeAll($conta, $id)
+    public function purgeAll($conta, $id):string
     {
         $response = Http::withHeaders([
             'X-Auth-Key'   => $conta->chave_api,
@@ -36,7 +36,7 @@ class ApiCloudflare{
     }
 
     //////////// LIMPAR VARIOS ARQUIVOS SELECIONADOS /////////////////////
-    public function purgePorUrl($conta, $id, $urls)
+    public function purgePorUrl($conta, $id, $urls):string
     {
         $response = Http::withHeaders([
             'X-Auth-Key'   => $conta->chave_api,
@@ -54,7 +54,7 @@ class ApiCloudflare{
 
 
     //////// LIMPAR CACHE POR URLS SELECIONADAS ////////////
-    public function purgeUrlsSelecionadas($conta, $urls)
+    public function purgeUrlsSelecionadas($conta, $urls):array
     {
         $responses = [];
 
@@ -74,7 +74,7 @@ class ApiCloudflare{
     }
 
     //////////// PEGAR TODOS OS DOMINIOS //////////////
-    public function getAllDominios($conta)
+    public function getAllDominios($conta):array
     {
         $total_pages = $this->retornarTotalPaginas($conta);
         $responses = [];
@@ -88,8 +88,9 @@ class ApiCloudflare{
             array_push($responses, $response);
         }
 
-        $responses = implode($responses);
-        return $responses;
+        $dominios = $this->recuperarDominios($responses, $total_pages);
+
+        return $dominios;
     }
 
     ///////// RETORNAR QUANTAS PAGINAS TEM A REQUISIÇÃO //////////
@@ -105,14 +106,16 @@ class ApiCloudflare{
     }
 
     /////////// RECUPERARR OS NOMES DOS DOMÍNIOS ///////////////////
-    private function recuperarDominios(array $responses,int $total_pages)
+    private function recuperarDominios(array $responses, int $total_pages):array
     {
         $dominios = [];
 
         for ($i = 0; $i < 20 ; $i++ ) { 
             foreach ($responses as $response) {
-                # code...
+                array_push($dominios, $response[$i]['name']);
             }
         }
+
+        return $dominios;
     }
 }
