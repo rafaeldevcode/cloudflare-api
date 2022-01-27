@@ -83,8 +83,8 @@ class CloudflareController extends Controller
         $usuario = Auth::user();
         $conta = Cloudflare::find($ID);
         $resultados = $conectar->getAllDominios($conta);
-        $dominios = $resultados['dominios'];
+        dd($resultados);
 
-        return view('painel/cloudflare/adicionarTag', compact('usuario', 'conta', 'dominios'));
+        return view('painel/cloudflare/adicionarTag', compact('usuario', 'conta', 'resultados'));
     }
 }

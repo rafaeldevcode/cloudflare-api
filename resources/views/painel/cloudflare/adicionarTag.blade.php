@@ -24,9 +24,7 @@
                 </form>
 
                 <section class="container-fluid">
-                    @for ($i = 0; $i < count($dominios); $i++)
-                        {{ $dominios }}
-                    @endfor
+
                 </section>
             </div>
         </section>
