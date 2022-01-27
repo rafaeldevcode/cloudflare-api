@@ -24,13 +24,14 @@
                 </form>
 
                 <section class="container-fluid">
-                    @foreach ($response as $item)
-                        {{-- @for ($i = 0; $i < 20; $i++) --}}
-                            {{ print_r($item[4]) }}
+                    {{-- @foreach ($response as $item)
+                        @for ($i = 0; $i < 20; $i++)
+                            {{ print_r($item[$i]) }}
                             <hr>
-                        {{-- @endfor --}}
+                        @endfor
                         <hr>
-                    @endforeach
+                    @endforeach --}}
+                    <p>{{ $response[0] }}</p>
                 </section>
             </div>
         </section>
