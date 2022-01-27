@@ -29,8 +29,8 @@ Route::post('/cloudflare/{ID}/purge-all', [CloudflareController::class, 'purgeAl
 Route::post('/cloudflare/{ID}/purge', [CloudflareController::class, 'purge']);
 Route::post('/cloudflare/{ID}/purge-urls-selecionadas', [CloudflareController::class, 'purgeUrlsSelecionadas']);
 
-Route::get('/cloudflare/{ID}/adicionar-tag', [TagController::class, 'index']);
-Route::post('/cloudflare/{ID}/adicionar-tag', [TagController::class, 'store']);
+Route::get('/cloudflare/{ID}/adicionar-tag', [TagController::class, 'create']);
+Route::post('/cloudflare/{ID}/adicionar-tag', [TagController::class, 'storeTag']);
 
-Route::get('/painel/perfil/{nomeUsuario}', [UsuarioController::class, 'create']);
+Route::get('/painel/perfil/{nomeUsuario}', [UsuarioController::class, 'index']);
 Route::post('/painel/perfil/{ID}/adicionar-imagen', [UsuarioController::class, 'store']);
