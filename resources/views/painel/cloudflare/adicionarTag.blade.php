@@ -27,8 +27,9 @@
                     @foreach ($response as $item)
                         @for ($i = 0; $i < 20; $i++)
                             {{ print_r($item[0]) }}
+                            <span>----------------------------------------------------------------------------------------</span>
                         @endfor
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                        <span>############################################################################</span>
                     @endforeach
                 </section>
             </div>
