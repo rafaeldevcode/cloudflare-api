@@ -50,8 +50,8 @@ class CloudflareController extends Controller
     public function purgeAll(int $ID, ApiCloudflare $conectar, Request $request)
     {
         $conta = Cloudflare::find($ID);
-        $id_cloudflare = $request->id_cloudflare;
-        $response = $conectar->purgeAll($conta, $id_cloudflare);
+        $id_dominio = $request->id_dominio;
+        $response = $conectar->purgeAll($conta, $id_dominio);
         $request->session()->flash('mensagem', $response);
 
         return redirect()->back();
@@ -61,9 +61,9 @@ class CloudflareController extends Controller
     public function purge(int $ID, Request $request, ApiCloudflare $conectar)
     {
         $conta = Cloudflare::find($ID);
-        $id_cloudflare = $request->id_cloudflare;
+        $id_dominio = $request->id_dominio;
         $urls = explode("\r\n", $request->urls);
-        $response = $conectar->purgePorUrl($conta, $id_cloudflare, $urls);
+        $response = $conectar->purgePorUrl($conta, $id_dominio, $urls);
         $request->session()->flash('mensagem', $response);
 
         return redirect()->back();
@@ -75,15 +75,5 @@ class CloudflareController extends Controller
         $conta = Cloudflare::find($ID);
         $urls[] = $request->urls;
         $conectar->purgeUrlsSelecionadas($conta, $urls);
-    }
-
-    //////// ADICIONAR TAG COM URLS PARA LIMPAR LIMPAR CACHE /////////
-    public function adicionarTag(int $ID, ApiCloudflare $conectar)
-    {
-        $usuario = Auth::user();
-        $conta = Cloudflare::find($ID);
-        $resultados = $conectar->getAllDominios($conta);
-
-        return view('painel/cloudflare/adicionarTag', compact('usuario', 'conta', 'resultados'));
     }
 }

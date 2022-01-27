@@ -9,7 +9,7 @@
                 <div>
                     <h1 class="m-0 fw-bolder text-cloudflare text-center">Adicionar tag</h1>
                 </div>
-                <form action="" method="POST" class="form-control border border-cloudflare py-5">
+                <form action="/cloudflare/{{ $conta->id }}/adicionar-tag" method="POST" class="form-control border border-cloudflare py-5">
                     @csrf
                     <div class="p-2">
                         <label for="nome" class="fs-6 text-secondary">Nome da tag</label>

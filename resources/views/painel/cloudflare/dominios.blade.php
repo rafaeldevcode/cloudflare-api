@@ -48,7 +48,7 @@
     
                                     <form action="/cloudflare/{{  $conta->id }}/purge-all" method="POST" class="ms-2">
                                         @csrf
-                                        <input type="hidden" name="id_cloudflare" value="{{ $response['result'][$i]['id'] }}">
+                                        <input type="hidden" name="id_dominio" value="{{ $response['result'][$i]['id'] }}">
     
                                         <button type="submit" class="btn btn-danger" title="Limpar cache">
                                             <i class="fas fa-broom"></i>
@@ -64,7 +64,7 @@
                             <form hidden class="form-limpar-urls mt-2" action="/cloudflare/{{ $conta->id }}/purge" method="POST">
                                 <div class="d-flex justify-content-between align-items-start">
                                     @csrf
-                                    <input type="hidden" name="id_cloudflare" value="{{ $response['result'][$i]['id'] }}">
+                                    <input type="hidden" name="id_dominio" value="{{ $response['result'][$i]['id'] }}">
 
                                     <div class="form-floating col-9">
                                         <textarea class="form-control" name="urls" placeholder="Uma URL por linha" id="floatingTextarea"></textarea>
@@ -94,7 +94,7 @@
 
             <div>
                 <p class="text-center text-cloudflare m-0">
-                    {{ $response['result_info']['page'] }} de {{ $response['result_info']['total_pages'] }} paginas
+                    {{ $response['result_info']['page'] }} de {{ $response['result_info']['total_pages'] }} páginas
                 </p>
 
                 <div class="d-flex justify-content-center align-items-center">

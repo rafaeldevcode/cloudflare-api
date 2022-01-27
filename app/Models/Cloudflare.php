@@ -22,4 +22,8 @@ class Cloudflare extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function tag(){
+        return $this->hasMany(Tag::class);
+    }
 }

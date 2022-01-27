@@ -109,18 +109,18 @@ class ApiCloudflare{
     private function recuperarDominios(array $responses):array
     {
         $dominios = [];
-        $ids_cloudflare = [];
+        $ids_dominio = [];
 
         foreach ($responses as $response) {
             for($i = 0; $i < count($response) ; $i++ ) { 
                 array_push($dominios, $response[$i]['name']);
-                array_push($ids_cloudflare, $response[$i]['id']);
+                array_push($ids_dominio, $response[$i]['id']);
             }
         }
 
         $resultados = [
             'dominios' => $dominios,
-            'ids_cloudflare' => $ids_cloudflare
+            'ids_dominio' => $ids_dominio
         ];
 
         return $resultados;
