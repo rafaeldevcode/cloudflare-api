@@ -24,7 +24,7 @@
                                 @endfor
 
                                 @for ($i = 0; $i < count($resultado['ids_cloudflare']); $i++)
-                                    <input class="form-check-input" id="{{ dominio-{{ $i }} }}" type="checkbox" name="id_cloudflare[]" value="{{ $resultado['ids_cloudflare'][$i] }}">
+                                    <input class="form-check-input" id="dominio-{{ $i }}" type="checkbox" name="id_cloudflare[]" value="{{ $resultado['ids_cloudflare'][$i] }}">
                                 @endfor
                             </span>
                         @endforeach
