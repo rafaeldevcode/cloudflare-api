@@ -54,6 +54,7 @@ class CloudflareController extends Controller
         $response = $conectar->purgeAll($conta, $id_dominio);
         $request->session()->flash('mensagem', $response);
 
+        dd($response);
         return redirect()->back();
     }
 
@@ -66,6 +67,7 @@ class CloudflareController extends Controller
         $response = $conectar->purgePorUrl($conta, $id_dominio, $urls);
         $request->session()->flash('mensagem', $response);
 
+        dd($response);
         return redirect()->back();
     }
 
