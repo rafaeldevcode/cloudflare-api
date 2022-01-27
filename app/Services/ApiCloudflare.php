@@ -88,9 +88,9 @@ class ApiCloudflare{
             array_push($responses, $response);
         }
 
-        $dominios = $this->recuperarDominios($responses, $total_pages);
+        $resultados = $this->recuperarDominios($responses);
 
-        return $responses;
+        return $resultados;
     }
 
     ///////// RETORNAR QUANTAS PAGINAS TEM A REQUISIÇÃO //////////
@@ -106,18 +106,23 @@ class ApiCloudflare{
     }
 
     /////////// RECUPERARR OS NOMES DOS DOMÍNIOS ///////////////////
-    private function recuperarDominios(array $responses, int $total_pages):array
+    private function recuperarDominios(array $responses):array
     {
         $dominios = [];
+        $ids_cloudflare = [];
 
-
-        foreach ($responses as $indice => $response) {
-
-            for($i = 0; $i < 4 ; $i++ ) { 
+        foreach ($responses as $response) {
+            for($i = 0; $i < count($response) ; $i++ ) { 
                 array_push($dominios, $response[$i]['name']);
+                array_push($ids_cloudflare, $response[$i]['id']);
             }
         }
 
-        return $dominios;
+        $resultados = [
+            'dominios' => $dominios,
+            'ids_cloudflare' => $ids_cloudflare
+        ];
+
+        return $resultados;
     }
 }
