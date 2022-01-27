@@ -25,7 +25,7 @@
 
                 <section class="container-fluid">
                     @foreach ($response as $item)
-                        {{ print_r($item) }}
+                        {{ print_r($item[0]) }}
                         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                     @endforeach
                 </section>
