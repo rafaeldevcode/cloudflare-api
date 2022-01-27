@@ -31,7 +31,7 @@
                         @endfor
                         <hr>
                     @endforeach --}}
-                    <p>{{ $response[0] }}</p>
+                    <p>{{ print_r($response[0]) }}</p>
                 </section>
             </div>
         </section>
