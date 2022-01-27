@@ -88,10 +88,12 @@ class ApiCloudflare{
             array_push($responses, $response);
         }
 
+        $responses = implode($responses);
         return $responses;
     }
 
-    private function retornarTotalPaginas($conta)
+    ///////// RETORNAR QUANTAS PAGINAS TEM A REQUISIÇÃO //////////
+    private function retornarTotalPaginas($conta):int
     {
         $total_pages = Http::withHeaders([
             'X-Auth-Key'   => $conta->chave_api,
@@ -100,5 +102,17 @@ class ApiCloudflare{
         ])->get("https://api.cloudflare.com/client/v4/zones/")['result_info']['total_pages'];
 
         return $total_pages;
+    }
+
+    /////////// RECUPERARR OS NOMES DOS DOMÍNIOS ///////////////////
+    private function recuperarDominios(array $responses,int $total_pages)
+    {
+        $dominios = [];
+
+        for ($i = 0; $i < 20 ; $i++ ) { 
+            foreach ($responses as $response) {
+                # code...
+            }
+        }
     }
 }
