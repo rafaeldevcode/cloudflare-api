@@ -24,7 +24,9 @@
                 </form>
 
                 <section class="container-fluid">
-
+                    @foreach ($resultados['dominios'] as $dominios)
+                        {{ $dominios }}
+                    @endforeach
                 </section>
             </div>
         </section>
