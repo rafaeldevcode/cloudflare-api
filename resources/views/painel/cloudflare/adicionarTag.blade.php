@@ -16,17 +16,13 @@
                         <input type="text" class="form-control" name="nome" placeholder="Adicione um nome para essa tag">
                     </div>
 
-                    <div class="d-flex flex-wrap">
-                        {{-- @foreach ($resultados as $resultado) --}}
- 
-                                @for ($i = 0; $i < count($resultados['dominios']); $i++)
-                                    <span class="d-flex p-1">
-                                        <label class="form-check-label" for="dominio-{{ $i }}">{{ $resultados['dominios'][$i] }}</label>
-                                        <input class="form-check-input" id="dominio-{{ $i }}" type="checkbox" name="id_cloudflare[]" value="{{ $resultados['ids_cloudflare'][$i] }}">
-                                    </span>
-                                @endfor
-
-                        {{-- @endforeach --}}
+                    <div class="d-flex flex-wrap justify-content-center">
+                        @for ($i = 0; $i < count($resultados['dominios']); $i++)
+                            <span class="d-flex p-1 border rounded">
+                                <label class="form-check-label" for="dominio-{{ $i }}">{{ $resultados['dominios'][$i] }}</label>
+                                <input class="form-check-input ms-1" id="dominio-{{ $i }}" type="checkbox" name="id_cloudflare[]" value="{{ $resultados['ids_cloudflare'][$i] }}">
+                            </span>
+                        @endfor
                     </div>
 
                     <div class="mt-3 col-12">
