@@ -17,17 +17,16 @@
                     </div>
 
                     <div class="d-flex flex-wrap">
-                        @foreach ($resultados as $resultado)
-                            <span class="d-flex p-1">
-                                @for ($i = 0; $i < count($resultado['dominios']); $i++)
-                                    <label class="form-check-label" for="dominio-{{ $i }}">{{ $resultado['dominios'][$i] }}</label>
+                        {{-- @foreach ($resultados as $resultado) --}}
+ 
+                                @for ($i = 0; $i < count($resultados['dominios']); $i++)
+                                    <span class="d-flex p-1">
+                                        <label class="form-check-label" for="dominio-{{ $i }}">{{ $resultados['dominios'][$i] }}</label>
+                                        <input class="form-check-input" id="dominio-{{ $i }}" type="checkbox" name="id_cloudflare[]" value="{{ $resultados['ids_cloudflare'][$i] }}">
+                                    </span>
                                 @endfor
 
-                                @for ($i = 0; $i < count($resultado['ids_cloudflare']); $i++)
-                                    <input class="form-check-input" id="dominio-{{ $i }}" type="checkbox" name="id_cloudflare[]" value="{{ $resultado['ids_cloudflare'][$i] }}">
-                                @endfor
-                            </span>
-                        @endforeach
+                        {{-- @endforeach --}}
                     </div>
 
                     <div class="mt-3 col-12">
