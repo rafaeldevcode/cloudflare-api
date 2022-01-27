@@ -16,7 +16,7 @@
                         <input type="text" class="form-control" name="nome" placeholder="Adicione um nome para essa tag">
                     </div>
 
-                    <div class="d-flex flex-wrap justify-content-center">
+                    <div class="d-flex flex-wrap justify-content-center tags-dominios">
                         @for ($i = 0; $i < count($resultados['dominios']); $i++)
                             <span class="d-flex p-1 border rounded">
                                 <label class="form-check-label" for="dominio-{{ $i }}">{{ $resultados['dominios'][$i] }}</label>

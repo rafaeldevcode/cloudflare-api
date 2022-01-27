@@ -158,6 +158,16 @@ footer{
     animation: opacidadeMenuAside .3s linear forwards;
 }
 
+/* //////// TAGS DOS DOMINIOS /////// */
+.tags-dominios{
+    height: 300px;
+    overflow-y: auto;
+}
+
+.tags-dominios span{
+    margin: 2px;
+}
+
 @keyframes animacaoEntrada {
     0%{
         opacity: 0;
