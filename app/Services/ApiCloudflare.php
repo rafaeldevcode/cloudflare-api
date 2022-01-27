@@ -113,7 +113,7 @@ class ApiCloudflare{
 
         foreach ($responses as $indice => $response) {
             // $indice = $indice == 4 ? 0 : $indice++;
-            array_push($dominios, $response[$indice++]['name']);
+            array_push($dominios, $response[$indice]['name']);
             // for($i = 0; $i < 20 ; $i++ ) { 
             //     array_push($dominios, $response[0]);
             // }
