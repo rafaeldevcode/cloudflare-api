@@ -25,10 +25,10 @@
 
                 <section class="container-fluid">
                     @foreach ($response as $item)
-                        @for ($i = 0; $i < 4; $i++)
-                            {{ print_r($item[$i]['name']) }}
-                            <hr>
-                        @endfor
+                        {{-- @for ($i = 0; $i < 20; $i++) --}}
+                            {{ print_r($item) }}
+                            {{-- <hr> --}}
+                        {{-- @endfor --}}
                         <hr>
                     @endforeach
                 </section>
