@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{CloudflareController, EntrarController, PainelController, UsuarioController};
-use App\Models\Cloudflare;
+use App\Http\Controllers\{CloudflareController, EntrarController, PainelController, UsuarioController, TagController};
 
 /*
 |--------------------------------------------------------------------------
