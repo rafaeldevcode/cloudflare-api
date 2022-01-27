@@ -7,7 +7,7 @@
         <section class="container my-5">
             <div class="col-12 col-md-6 m-auto">
                 <div>
-                    <p class="m-0 fw-bolder text-cloudflare text-center">Adicionar tag</p>
+                    <h1 class="m-0 fw-bolder text-cloudflare text-center">Adicionar tag</h1>
                 </div>
                 <form action="" method="POST" class="form-control border border-cloudflare py-5">
                     @csrf
@@ -16,10 +16,11 @@
                         <input type="text" class="form-control" name="nome" placeholder="Adicione um nome para essa tag">
                     </div>
 
-                    <div class="d-flex flex-wrap justify-content-center tags-dominios">
+                    <div class="d-flex flex-wrap justify-content-center tags-dominios mt-3">
+                        <p class="text-cloudflare">Selecione os dominios que deseja adicionar a essa tag</p>
                         @for ($i = 0; $i < count($resultados['dominios']); $i++)
                             <span class="d-flex p-1 border rounded">
-                                <label class="form-check-label" for="dominio-{{ $i }}">{{ $resultados['dominios'][$i] }}</label>
+                                <label class="form-check-label fs-6" for="dominio-{{ $i }}">{{ $resultados['dominios'][$i] }}</label>
                                 <input class="form-check-input ms-1" id="dominio-{{ $i }}" type="checkbox" name="id_cloudflare[]" value="{{ $resultados['ids_cloudflare'][$i] }}">
                             </span>
                         @endfor
