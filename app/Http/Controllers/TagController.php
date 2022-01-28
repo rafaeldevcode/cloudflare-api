@@ -41,9 +41,9 @@ class TagController extends Controller
         $usuario = Auth::user();
         $conta = Cloudflare::find($ID);
         $tags = $conta->tags()->get();
-        $mensagem = $request->session()->get('mensagem');
+        $mensagens = $request->session()->get('mensagens');
 
-        return view('painel/tags/index', compact('usuario', 'conta', 'tags', 'mensagem'));
+        return view('painel/tags/index', compact('usuario', 'conta', 'tags', 'mensagens'));
     }
 
     ///////// LIMPAR CACHE DA TAG ////////
@@ -52,7 +52,7 @@ class TagController extends Controller
         $urls = explode(',', $request->id_dominio);
         $conta = Cloudflare::find($request->id_cloudflare);
         $response = $conectar->purgeUrlsSelecionadas($conta, $urls);
-        $request->session()->flash('mensagem', $response);
+        $request->session()->flash('mensagens', $response);
 
         return redirect()->back();
     }
