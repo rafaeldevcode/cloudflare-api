@@ -16,19 +16,9 @@
 
             <ul class="list-group col-12 col-md-10 col-lg-8 mt-5 m-auto">
                 <li class="header-list list-group-item mb-3 rounded d-flex justify-content-between align-items-center">
-                    Domínio
+                    Tag
                     <span class="d-flex align-items-center">
-                        <p class="m-1">Limpar por urls | </p>
-
-                        <p class="m-1">Limpar domínio</p>
-
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked">
-                        </div>
-
-                        <div hidden class="form-check m-auto abilitar">
-                            <input class="form-check-input ms-1" type="checkbox" value="" id="flexCheckChecked">
-                        </div>
+                        <p class="m-1">Limpar tag</p>
                     </span>
                 </li>
 
@@ -43,11 +33,7 @@
                                 {{ $tag->nome }}
 
                                 <span class="d-flex">
-                                    <a class="btn btn-cloudflare limpar-urls text-light" title="Limpar cache por urls" href="#">
-                                        <i class="fas fa-sort-down arrow"></i>
-                                    </a>
-
-                                    <form action="/cloudflare/{{  $conta->id }}/purge-all" method="POST" class="ms-2">
+                                    <form action="/tag/{{  $tag->id }}/purge" method="POST" class="ms-2">
                                         @csrf
                                         <input type="hidden" name="id_dominio" value="{{ $tag->ids_dominio }}">
 

@@ -45,4 +45,11 @@ class TagController extends Controller
 
         return view('painel/tags/index', compact('usuario', 'conta', 'tags', 'mensagem'));
     }
+
+    ///////// LIMPAR CACHE DA TAG ////////
+    public function limparTag(int $ID, Request $request)
+    {
+        $ids_dominio = explode(',', $request->id_dominio);
+        dd($ids_dominio);
+    }
 }
