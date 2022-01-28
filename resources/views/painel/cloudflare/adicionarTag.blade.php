@@ -4,6 +4,10 @@
     @include('layouts/componentes/header')
 
     <main class="d-flex flex-column">
+        <div class="col-12 col-md-10 p-2 m-auto mensagem">
+            @include('layouts/componentes/mensagem', [$mensagem])
+        </div>
+        
         <section class="container my-5">
             <div class="col-12 col-md-6 m-auto">
                 <div>

@@ -166,6 +166,10 @@ footer{
 
 .tags-dominios span{
     margin: 2px;
+}
+.tags-dominios span,
+.tags-dominios span label,
+.tags-dominios span input{
     cursor: pointer;
 }
 
