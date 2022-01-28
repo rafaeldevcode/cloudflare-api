@@ -1,3 +1,5 @@
+@extends('layouts/layout')
+
 @section('conteudo')
     @include('layouts/componentes/header')
 
