@@ -57,7 +57,7 @@ class ApiCloudflare{
     public function purgeUrlsSelecionadas($conta, $urls):array
     {
         $responses = [];
-        $mensagem = '';
+        $mensagens = [];
 
         foreach($urls as $url){
             $response = Http::withHeaders([
@@ -72,10 +72,10 @@ class ApiCloudflare{
         }
 
         for ($i = 0; $i < count($responses) ; $i++) { 
-            $mensagem = $responses[$i]['success'] == true ? 'Cache limpado com sucesso!' : 'Erro na solicitação!';
+            array_push($mensagens, "ID [{$urls[$i]}] - Staus [{$responses[$i]['success']}] - Erros [{$responses[$i]['errors'][0]['message']}]");
         }
 
-        return $responses;
+        return $mensagens;
     }
 
     //////////// PEGAR TODOS OS DOMINIOS //////////////
