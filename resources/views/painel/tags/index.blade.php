@@ -35,7 +35,7 @@
                                 <span class="d-flex">
                                     <form action="/tag/{{  $tag->id }}/purge" method="POST" class="ms-2">
                                         @csrf
-                                        <input type="hidden" name="id_dominio" value="{{ $tag->ids_dominio }}">
+                                        <input type="hidden" name="id_dominio" value="teste,{{ $tag->ids_dominio }}">
                                         <input type="hidden" name="id_cloudflare" value="{{ $conta->id }}">
 
                                         <button type="submit" class="btn btn-danger" title="Limpar cache">
