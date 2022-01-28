@@ -54,6 +54,6 @@ class TagController extends Controller
         $response = $conectar->purgeUrlsSelecionadas($conta, $urls);
         $request->session()->flash('mensagem', $response);
 
-        dd($response);
+        return redirect()->back();
     }
 }
