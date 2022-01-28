@@ -166,6 +166,7 @@ footer{
 
 .tags-dominios span{
     margin: 2px;
+    cursor: pointer;
 }
 
 @keyframes animacaoEntrada {
