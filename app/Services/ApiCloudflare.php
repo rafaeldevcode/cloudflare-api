@@ -72,7 +72,8 @@ class ApiCloudflare{
         }
 
         for ($i = 0; $i < count($responses) ; $i++) { 
-            array_push($mensagens, "ID [{$urls[$i]}] - Staus [{$responses[$i]['success']}] - Erros [{$responses[$i]['errors']['message']}]");
+            $errors = empty($responses[$i]['errors']) ? '' : $responses[$i]['errors'][0]['message'];
+            array_push($mensagens, "ID [{$urls[$i]}] - Staus [{$responses[$i]['success']}] - Erros [{$errors}]");
         }
 
         return $mensagens;
