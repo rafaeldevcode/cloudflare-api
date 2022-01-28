@@ -12,7 +12,7 @@
                 </a>
             </li>
 
-            <li class="list-group-item p-0 bg-transparent border-0">
+            <li class="list-group-item p-0 bg-transparent border-0 mt-3">
                 <a href="/cloudflare/{{ $conta->id }}/listar-tag" class="text-decoration-none text-light d-flex flex-row">
                     <i class="fas fa-eye fs-4"></i>
                     <p hidden class="m-0 ps-2 exibir-link">Ver tags</p>

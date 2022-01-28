@@ -38,10 +38,11 @@ class TagController extends Controller
     ////////// VISUALIZAR TAGS CADASTRADAS //////////
     public function index(int $ID, Request $request)
     {
+        $usuario = Auth::user();
         $conta = Cloudflare::find($ID);
         $tags = $conta->tags()->get();
         $mensagem = $request->session()->get('mensagem');
 
-        return view('painel/tags/index', compact('conta', 'tags', 'mensagem'));
+        return view('painel/tags/index', compact('usuario', 'conta', 'tags', 'mensagem'));
     }
 }
