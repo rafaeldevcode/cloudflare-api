@@ -23,4 +23,12 @@ class TagController extends Controller
 
         return view('painel/cloudflare/adicionarTag', compact('usuario', 'conta', 'resultados'));
     }
+
+    /////// GUARDAR TAG NO BANCO //////////////////
+    public function store(Request $request)
+    {
+        $ids_dominio = $request->ids_dominio;
+
+        dd($ids_dominio);
+    }
 }
