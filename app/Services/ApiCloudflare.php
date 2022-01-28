@@ -54,7 +54,7 @@ class ApiCloudflare{
 
 
     //////// LIMPAR CACHE POR URLS SELECIONADAS ////////////
-    public function purgeUrlsSelecionadas($conta, $urls):string
+    public function purgeUrlsSelecionadas($conta, $urls):array
     {
         $responses = [];
         $mensagem = '';
@@ -75,7 +75,7 @@ class ApiCloudflare{
             $mensagem = $responses[$i]['success'] == true ? 'Cache limpado com sucesso!' : 'Erro na solicitação!';
         }
 
-        return $mensagem;
+        return $responses;
     }
 
     //////////// PEGAR TODOS OS DOMINIOS //////////////
