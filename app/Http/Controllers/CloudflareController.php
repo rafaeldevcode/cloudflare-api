@@ -21,7 +21,7 @@ class CloudflareController extends Controller
     {
         $usuario = Auth::user();
 
-        return view('painel/cloudflare/index', compact('usuario'));
+        return view('painel/cloudflare/create', compact('usuario'));
     }
 
     ///////////// GUARDAR CONTA NO BD ////////////
@@ -43,7 +43,7 @@ class CloudflareController extends Controller
 
         $response = json_decode($conectar->getZones($conta, $page), true);
 
-        return view('painel/cloudflare/dominios', compact('usuario', 'conta', 'response', 'mensagem'));
+        return view('painel/cloudflare/index', compact('usuario', 'conta', 'response', 'mensagem'));
     }
 
     /////////// LIMPAR O CACHE DO DOMINIO //////////

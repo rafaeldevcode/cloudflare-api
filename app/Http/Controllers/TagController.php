@@ -23,7 +23,7 @@ class TagController extends Controller
         $resultados = $conectar->getAllDominios($conta);
         $mensagem = $request->session()->get('mensagem');
 
-        return view('painel/cloudflare/adicionarTag', compact('usuario', 'conta', 'resultados', 'mensagem'));
+        return view('painel/tags/create', compact('usuario', 'conta', 'resultados', 'mensagem'));
     }
 
     /////// GUARDAR TAG NO BANCO //////////////////
@@ -33,5 +33,15 @@ class TagController extends Controller
         $request->session()->flash('mensagem', 'Tag adicionada com sucesso!');
 
         return redirect()->back();
+    }
+
+    ////////// VISUALIZAR TAGS CADASTRADAS //////////
+    public function index(int $ID, Request $request)
+    {
+        $conta = Cloudflare::find($ID);
+        $tags = $conta->tags()->get();
+        $mensagem = $request->session()->get('mensagem');
+
+        return view('painel/tags/index', compact('conta', 'tags', 'mensagem'));
     }
 }
