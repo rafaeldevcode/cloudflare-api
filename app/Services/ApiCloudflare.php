@@ -46,8 +46,9 @@ class ApiCloudflare{
         ]);
 
         $response = json_decode($response, true);
+        dd($response['success']);
 
-        return $$response['success'];
+        return $response['success'];
     }
 
 
