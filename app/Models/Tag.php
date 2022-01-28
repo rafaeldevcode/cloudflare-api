@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    public $fillable = ['nome', 'ids_dominios'];
+    public $fillable = ['nome', 'ids_dominio'];
 
     public function cloudflare()
     {

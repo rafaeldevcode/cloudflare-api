@@ -19,7 +19,7 @@ class AdicionarTag extends Migration
             $table->integer('cloudflare_id');
             $table->foreign('cloudflare_id')->references('id')->on('cloudflare');
             $table->string('nome');
-            $table->string('ids_dominios');
+            $table->string('ids_dominio');
             $table->timestamps();
         });
     }
