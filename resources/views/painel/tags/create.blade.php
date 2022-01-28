@@ -3,7 +3,7 @@
 @section('conteudo')
     @include('layouts/componentes/header')
 
-    <main class="d-flex flex-column">
+    <main class="d-flex flex-column position-relative">
         <div class="col-12 col-md-10 p-2 m-auto mensagem">
             @include('layouts/componentes/mensagem', [$mensagem])
         </div>
