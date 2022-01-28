@@ -30,9 +30,8 @@ class ApiCloudflare{
         ]);
 
         $response = json_decode($response, true);
-        $mensagem = $response['success'] == true ? 'Cache limpado com sucesso!' : 'Erro na solicitação!';
         
-        return $mensagem;
+        return $response['success'];
     }
 
     //////////// LIMPAR VARIOS ARQUIVOS SELECIONADOS /////////////////////
@@ -47,9 +46,8 @@ class ApiCloudflare{
         ]);
 
         $response = json_decode($response, true);
-        $mensagem = $response['success'] == true ? 'Cache limpado com sucesso!' : 'Erro na solicitação!';
 
-        return $mensagem;
+        return $$response['success'];
     }
 
 

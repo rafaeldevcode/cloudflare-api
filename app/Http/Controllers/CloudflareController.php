@@ -52,9 +52,14 @@ class CloudflareController extends Controller
         $conta = Cloudflare::find($ID);
         $id_dominio = $request->id_dominio;
         $response = $conectar->purgeAll($conta, $id_dominio);
-        $request->session()->flash('mensagem', $response);
 
-        return redirect()->back();
+        if($response == 1){
+            $request->session()->flash('mensagem', 'cache Limpado com sucesso!');
+
+            return redirect()->back();
+        }else{
+            return redirect()->back()->withErrors('Erro ao efetuar a limpeza de cache!');
+        }
     }
 
     ///////// LIMPAR CACHE DAS URLS FORNECIDAS //////////
@@ -64,9 +69,14 @@ class CloudflareController extends Controller
         $id_dominio = $request->id_dominio;
         $urls = explode("\r\n", $request->urls);
         $response = $conectar->purgePorUrl($conta, $id_dominio, $urls);
-        $request->session()->flash('mensagem', $response);
 
-        return redirect()->back();
+        if($response == 1){
+            $request->session()->flash('mensagem', 'cache Limpado com sucesso!');
+
+            return redirect()->back();
+        }else{
+            return redirect()->back()->withErrors('Erro ao efetuar a limpeza de cache!');
+        }
     }
 
     ////////// LIMPAR CACHES POR URLS SELECIONADAS /////////

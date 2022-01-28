@@ -6,6 +6,7 @@
     <main class="d-flex flex-column position-relative">
         <div class="col-12 col-md-10 p-2 m-auto mensagem">
             @include('layouts/componentes/mensagem', [$mensagem])
+            @include('layouts/componentes/errors')
         </div>
         
         <section class="container my-5">
