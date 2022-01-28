@@ -46,9 +46,14 @@ class Adicionar{
     ////////////// ADICIONAR TAGS DOS DOMÍNIOS ///////////////////
     public function adicionarTag($request, $ID)
     {
+        $teste = implode(',', $request->ids_dominio);
+        dd($teste);
+        
         DB::beginTransaction();
             $conta = Cloudflare::find($ID);
-            $conta->tags()->create($request->all());
+            $data = $request->all();
+            $data['ids_dominio'] = implode(',', $request->ids_dominio);
+            $conta->tags()->create($data);
         DB::commit();
     }
 }
