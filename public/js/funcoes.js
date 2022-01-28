@@ -205,3 +205,32 @@ function ocultarMenu(){
         }
     })
 }
+
+///////////// REMOVER MENSAGEM DE RETORNO DA LIMEZA DE CACHE ////////////
+function removerMensagem(){
+    document.getElementById('remover').addEventListener('click', ()=>{
+        document.querySelector('.mensagem').remove();
+    })
+}
+
+//////////// ADICIONAR IMAGEM DO USUARIO /////////////////
+function adicionarImagemUsuario(){
+    let formularioImagen = document.getElementById('formulario-imagen');
+    document.getElementById('editar-imagen').addEventListener('click', ()=>{
+
+        formularioImagen.removeAttribute('hidden');
+        formularioImagen.classList.remove('opacidadeReversa')
+        formularioImagen.classList.add('d-flex', 'opacidade')
+    })
+
+    document.getElementById('fechar-formulario-imagen').addEventListener('click', ()=>{
+
+        formularioImagen.classList.remove('opacidade')
+        formularioImagen.classList.add('opacidadeReversa')
+
+        setTimeout(() => {
+            formularioImagen.hidden = true;
+            formularioImagen.classList.remove('d-flex')
+        }, 400);
+    })
+}

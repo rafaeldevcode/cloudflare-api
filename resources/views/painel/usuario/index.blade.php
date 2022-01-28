@@ -30,25 +30,8 @@
             </section>
         </main>
 
-        <script>
-            let formularioImagen = document.getElementById('formulario-imagen');
-            document.getElementById('editar-imagen').addEventListener('click', ()=>{
-
-                formularioImagen.removeAttribute('hidden');
-                formularioImagen.classList.remove('opacidadeReversa')
-                formularioImagen.classList.add('d-flex', 'opacidade')
-            })
-
-            document.getElementById('fechar-formulario-imagen').addEventListener('click', ()=>{
-
-                formularioImagen.classList.remove('opacidade')
-                formularioImagen.classList.add('opacidadeReversa')
-
-                setTimeout(() => {
-                    formularioImagen.hidden = true;
-                    formularioImagen.classList.remove('d-flex')
-                }, 400);
-            })
+        <script type="text/javascript">
+            adicionarImagemUsuario();
         </script>
 
     @include('layouts/componentes/footer')
