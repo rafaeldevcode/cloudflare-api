@@ -19,7 +19,7 @@ class ApiCloudflare{
     }
 
     /////////// LIMAPAR CACHE DO DOMINIO ////////////////
-    public function purgeAll($conta, $id):string
+    public function purgeAll($conta, $id):bool
     {
         $response = Http::withHeaders([
             'X-Auth-Key'   => $conta->chave_api,
@@ -35,7 +35,7 @@ class ApiCloudflare{
     }
 
     //////////// LIMPAR VARIOS ARQUIVOS SELECIONADOS /////////////////////
-    public function purgePorUrl($conta, $id, $urls):string
+    public function purgePorUrl($conta, $id, $urls):bool
     {
         $response = Http::withHeaders([
             'X-Auth-Key'   => $conta->chave_api,

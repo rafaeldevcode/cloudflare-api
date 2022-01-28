@@ -8,8 +8,8 @@
             {{ $mensagem }}
         </div>
     @endforeach
-@endif
 
-<script type="text/javascript">
-    removerMensagem();
-</script>
+    <script type="text/javascript">
+        removerMensagem();
+    </script>
+@endif
