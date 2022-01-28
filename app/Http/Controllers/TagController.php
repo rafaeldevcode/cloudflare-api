@@ -47,9 +47,13 @@ class TagController extends Controller
     }
 
     ///////// LIMPAR CACHE DA TAG ////////
-    public function limparTag(int $ID, Request $request)
+    public function limparTag(int $ID, Request $request, ApiCloudflare $conectar)
     {
-        $ids_dominio = explode(',', $request->id_dominio);
-        dd($ids_dominio);
+        $urls = explode(',', $request->id_dominio);
+        $conta = Cloudflare::find($request->id_cloudflare);
+        $response = $conectar->purgeUrlsSelecionadas($conta, $urls);
+        $request->session()->flash('mensagem', $response);
+
+        dd($response);
     }
 }
