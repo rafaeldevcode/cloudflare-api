@@ -111,7 +111,6 @@ function marcarTodosInputCheck(){
 //////////// REQUISIÇÃO PARA LIMPAR AS URLS SELECIONADAS ////////////
 function limparUrlsSelecionadas(){
     document.getElementById('limpar-urls-selecionadas').addEventListener('click', ()=>{
-        acionarLoad();
         let urlsSelecionadas = document.querySelectorAll('input[type="checkbox"]');
         let id = document.getElementById('id').value
         let token = document.querySelector('.btn-limpar-urls-selecionadas > input[name="_token"]').value;
@@ -169,7 +168,10 @@ function exibirMensagem(mensagem, cor, urls){
         div.innerHTML = mensagem;
 
     divMensagem.appendChild(div)
-    removerClass();
+
+    setTimeout(() => {
+        removerClass();
+    }, 1000);
 }
 
 //////// REMOVER CLASSE ///////////////
