@@ -161,7 +161,6 @@ function exibirMensagem(mensagem, cor){
     let divMensagem = document.querySelector('.mensagem');
     let div = document.createElement('div');
     removerClass();
-    document.querySelector('.load').remove();
         divMensagem.innerHTML = '';
 
         div.setAttribute('class', `alert alert-${cor}`);
@@ -172,7 +171,8 @@ function exibirMensagem(mensagem, cor){
 
 //////// REMOVER CLASSE ///////////////
 function removerClass(){
-    let btnLoad = document.querySelectorAll('btn-load');
+    document.querySelector('.load').remove();
+    let btnLoad = document.querySelectorAll('.btn-load');
 
     for(let i = 0; i < btnLoad.length; i++){
         btnLoad[i].classList.remove('transparent');
