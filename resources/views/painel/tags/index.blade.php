@@ -38,7 +38,7 @@
                                         <input type="hidden" name="id_dominio" value="{{ $tag->ids_dominio }}">
                                         <input type="hidden" name="id_cloudflare" value="{{ $conta->id }}">
 
-                                        <button type="submit" class="btn btn-danger" title="Limpar cache">
+                                        <button type="submit" class="btn btn-danger session-load btn-load" title="Limpar cache">
                                             <i class="fas fa-broom"></i>
                                         </button>
                                     </form>
@@ -53,4 +53,8 @@
     </main>
 
     @include('layouts/componentes/footer')
+
+    <script type="text/javascript">
+        acionarLoad();
+    </script>
 @endsection
