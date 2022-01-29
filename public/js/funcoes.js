@@ -129,7 +129,7 @@ function limparUrlsSelecionadas(){
 
         if(urls == ''){
 
-            exibirMensagem('Nenhuma domínio selecionado!', 'danger');
+            exibirMensagem('Nenhuma domínio selecionado!', 'danger', urls);
         }else{
             formData.append('_token', token);
             formData.append('urls', urls);
@@ -143,10 +143,10 @@ function limparUrlsSelecionadas(){
 
                 if(response.ok){
 
-                    exibirMensagem('Cache limpado com sucesso!', 'success');
+                    exibirMensagem('Cache limpado com sucesso!', 'success', urls);
                 }else{
 
-                    exibirMensagem('Erro ao efetuar a limpeza de cache!', 'danger');
+                    exibirMensagem('Erro ao efetuar a limpeza de cache!', 'danger', urls);
                 }
             }).catch(function(error){
                 console.error(`Ocorreu um problema com sua operação de busca: ${error.message}`);
@@ -156,17 +156,19 @@ function limparUrlsSelecionadas(){
 }
 
 ////////// EXIBIR MENSAGEM ////////////
-function exibirMensagem(mensagem, cor){
+function exibirMensagem(mensagem, cor, urls){
+    urls = [];
     window.scrollTo({top:0, left:0, behavior:'smooth'});
     let divMensagem = document.querySelector('.mensagem');
     let div = document.createElement('div');
-    removerClass();
+    
         divMensagem.innerHTML = '';
 
         div.setAttribute('class', `alert alert-${cor}`);
         div.innerHTML = mensagem;
 
     divMensagem.appendChild(div)
+    removerClass();
 }
 
 //////// REMOVER CLASSE ///////////////
