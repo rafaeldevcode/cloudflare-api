@@ -160,6 +160,7 @@ function exibirMensagem(mensagem, cor){
     window.scrollTo({top:0, left:0, behavior:'smooth'});
     let divMensagem = document.querySelector('.mensagem');
     let div = document.createElement('div');
+    removerClass();
     document.querySelector('.load').remove();
         divMensagem.innerHTML = '';
 
@@ -167,6 +168,15 @@ function exibirMensagem(mensagem, cor){
         div.innerHTML = mensagem;
 
     divMensagem.appendChild(div)
+}
+
+//////// REMOVER CLASSE ///////////////
+function removerClass(){
+    let btnLoad = document.querySelectorAll('btn-load');
+
+    for(let i = 0; i < btnLoad.length; i++){
+        btnLoad[i].classList.remove('transparent');
+    };
 }
 
 ///////////// LIMPAR INPUTS SELECIONADOS ///////////
