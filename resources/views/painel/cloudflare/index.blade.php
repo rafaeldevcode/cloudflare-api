@@ -52,7 +52,7 @@
                                         @csrf
                                         <input type="hidden" name="id_dominio" value="{{ $response['result'][$i]['id'] }}">
     
-                                        <button type="submit" class="btn btn-danger" title="Limpar cache">
+                                        <button type="submit" class="btn btn-danger session-load btn-load" title="Limpar cache">
                                             <i class="fas fa-broom"></i>
                                         </button>
                                     </form>
@@ -73,8 +73,8 @@
                                         <label for="floatingTextarea">Digite uma url por linha</label>
                                     </div>
 
-                                    <div class="col-2">
-                                        <button class="btn btn-danger w-100" title="Limpar" type="submit">
+                                    <div class="col-2 session-load">
+                                        <button class="btn btn-danger w-100 btn-load" title="Limpar" type="submit">
                                             Limpar
                                         </button>
                                     </div>
@@ -89,7 +89,7 @@
                 @csrf
                 <input type="hidden" id="id" value="{{ $conta->id }}">
 
-                <button hidden title="Limpar URLs" type="button" class="btn btn-danger abilitar" id="limpar-urls-selecionadas">
+                <button hidden title="Limpar URLs" type="button" class="btn btn-danger abilitar session-load btn-load" id="limpar-urls-selecionadas">
                     Limpar URLs
                 </button>
             </div>
@@ -103,7 +103,7 @@
                     <form action="/cloudflare/{{ $conta->id }}/" method="GET">
                         <input type="hidden" name="page" value="{{ $response['result_info']['page']-1 }}">
 
-                        <button {{ $response['result_info']['page'] == 1 ? 'disabled' : '' }} title="Anterior" type="submit" class="btn btn-success m-1">
+                        <button {{ $response['result_info']['page'] == 1 ? 'disabled' : '' }} title="Anterior" type="submit" class="btn btn-success m-1 session-load btn-load">
                             <i class="fas fa-step-backward"></i>
                             Anterior
                         </button>
@@ -112,7 +112,7 @@
                     <form action="/cloudflare/{{ $conta->id }}/" method="GET">
                         <input type="hidden" name="page" value="{{ $response['result_info']['page']+1 }}">
 
-                        <button {{ $response['result_info']['page'] == $response['result_info']['total_pages'] ? 'disabled' : '' }} title="Próximo" type="submit" class="btn btn-success m-1">
+                        <button {{ $response['result_info']['page'] == $response['result_info']['total_pages'] ? 'disabled' : '' }} title="Próximo" type="submit" class="btn btn-success m-1 session-load btn-load">
                             Próximo
                             <i class="fas fa-step-forward"></i>
                         </button>
@@ -129,5 +129,6 @@
         abilitarFormulario();
         abilitarLimpezaPorUrl();
         limparUrlsSelecionadas();
+        acionarLoad();
     </script>
 @endsection

@@ -160,6 +160,7 @@ function exibirMensagem(mensagem, cor){
     window.scrollTo({top:0, left:0, behavior:'smooth'});
     let divMensagem = document.querySelector('.mensagem');
     let div = document.createElement('div');
+    document.querySelector('.load').remove();
         divMensagem.innerHTML = '';
 
         div.setAttribute('class', `alert alert-${cor}`);
@@ -233,4 +234,20 @@ function adicionarImagemUsuario(){
             formularioImagen.classList.remove('d-flex')
         }, 400);
     })
+}
+
+//////////// ACIONAR O LOAD DO BOTÃO /////////////////
+function acionarLoad(){
+    let btnLoad = document.querySelectorAll('.btn-load');
+    let sessionLoad = document.querySelectorAll('.session-load');
+
+    for(let i = 0; i < btnLoad.length; i++){
+        btnLoad[i].addEventListener('click', ()=>{
+            let div = document.createElement('div');
+                div.setAttribute('class', 'load');
+
+                btnLoad[i].classList.add('transparent');
+                sessionLoad[i].appendChild(div);
+        })
+    }
 }

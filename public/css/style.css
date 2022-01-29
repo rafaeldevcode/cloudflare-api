@@ -173,6 +173,28 @@ footer{
     cursor: pointer;
 }
 
+/* ////////// SESSÃO LOAD ////////// */
+.session-load{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.load{
+    width: 30px;
+    height: 30px;
+    border: 4px solid #FFF;
+    border-radius: 50%;
+    position: absolute;
+    border-top: 4px solid transparent;
+    animation: load .8s linear infinite;
+}
+
+.transparent{
+    color: transparent !important;
+}
+
 @keyframes animacaoEntrada {
     0%{
         opacity: 0;
@@ -259,6 +281,15 @@ footer{
     }
     100%{
         opacity: 1;
+    }
+}
+
+@keyframes load {
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
     }
 }
 

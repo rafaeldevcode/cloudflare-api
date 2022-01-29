@@ -58,7 +58,7 @@ class CloudflareController extends Controller
 
             return redirect()->back();
         }else{
-            return redirect()->back()->withErrors('Erro ao efetuar a limpeza de cache! Verifique se a url está correta.');
+            return redirect()->back()->withErrors('Erro ao efetuar a limpeza de cache! Se persistir contate o suporte.');
         }
     }
 
@@ -75,7 +75,7 @@ class CloudflareController extends Controller
 
             return redirect()->back();
         }else{
-            return redirect()->back()->withErrors('Erro ao efetuar a limpeza de cache! Se persistir contate o suporte.');
+            return redirect()->back()->withErrors('Erro ao efetuar a limpeza de cache! Verifique se a url está correta.');
         }
     }
 
