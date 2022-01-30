@@ -35,3 +35,4 @@ Route::post('/tag/{ID}/purge', [TagController::class, 'limparTag']);
 
 Route::get('/painel/perfil/{nomeUsuario}', [UsuarioController::class, 'index']);
 Route::post('/painel/perfil/{ID}/adicionar-imagen', [UsuarioController::class, 'store']);
+Route::post('/painel/perfil/{ID}/editar', [UsuarioController::class, 'editar']);

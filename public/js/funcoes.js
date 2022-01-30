@@ -129,7 +129,9 @@ function limparUrlsSelecionadas(){
 
         if(urls == ''){
 
-            exibirMensagem('Nenhuma domínio selecionado!', 'danger', urls);
+            setTimeout(() => {
+                exibirMensagem('Nenhuma domínio selecionado!', 'danger', urls);
+            }, 3000);
         }else{
             formData.append('_token', token);
             formData.append('urls', urls);
@@ -168,10 +170,7 @@ function exibirMensagem(mensagem, cor, urls){
         div.innerHTML = mensagem;
 
     divMensagem.appendChild(div)
-
-    setTimeout(() => {
-        removerClass();
-    }, 1000);
+    removerClass();
 }
 
 //////// REMOVER CLASSE ///////////////
@@ -265,4 +264,19 @@ function acionarLoad(){
                 sessionLoad[i].appendChild(div);
         })
     }
+}
+
+//////// ABILITAR INPUTS PARA EDITAR USUARIO ////////////
+function editarUsuario(){
+    document.getElementById('editar-usuario').addEventListener('click', ()=>{
+        let inputs = document.querySelectorAll('form * input');
+        
+        for(let i = 0; i < inputs.length; i++){
+            if(inputs[i].hasAttribute('disabled')){
+                inputs[i].removeAttribute('disabled');
+            }else{
+                inputs[i].disabled = true;
+            }
+        }
+    })
 }

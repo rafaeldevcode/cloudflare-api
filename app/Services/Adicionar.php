@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class Adicionar{
 
@@ -29,6 +30,7 @@ class Adicionar{
     {
         DB::beginTransaction();
             $usuario = User::find($ID);
+            if(!empty($usuario->image_usuario)){Storage::delete($usuario->image_usuario);}
             $usuario->image_usuario = $request->file('image_usuario')->store('galeria');
             $usuario->save();
         DB::commit();

@@ -5,16 +5,19 @@
 
         <main class="container my-5">
             <section class="conatiner">
-                @include('layouts/componentes/mensagem')
-                <div class="rounded border border-cloudflare position-relative col-12 col-md-9 m-auto p-3 d-flex justify-content-between align-items-start">
-                    <div class="rounded-circle image-user position-relative col-2">
+                <div class="col-12 col-md-9 m-auto mensagem">
+                    @include('layouts/componentes/mensagem')
+                </div>
+
+                <div class="rounded border border-cloudflare position-relative col-12 col-md-9 m-auto p-3 d-flex justify-content-between align-items-start flex-wrap">
+                    <div class="rounded-circle image-user position-relative col-2 m-auto">
                         <img class="img-thumbnail border-cloudflare rounded-circle" src="{{ $usuario->imagem_usuario }}" alt="{{ $usuario->name }}">
                         <div class="position-absolute rounded-circle p-2 bg-dark d-flex justify-content-center align-itens-center">
                             <i class="fas fa-pencil-alt fs-6 text-light" id="editar-imagen"></i>
                         </div>
                     </div>
 
-                    <div class="col-10">
+                    <div class="col-10 mx-auto">
                         <h1 class="text-center">{{ $usuario->name }}</h1>
                     </div>
 
@@ -28,10 +31,53 @@
                     </div>
                 </div>
             </section>
+
+            <section class="container">
+                <div class="rounded border border-cloudflare col-12 col-md-9 m-auto mt-5 p-3">
+                    <h2 class="d-flex justify-content-center fw-bolder text-cloudflare fs-3">
+                        Editar usuário
+                        <span class="ms-1 rounded-circle border border-cloudflare p-2 bg-light d-flex justify-content-center align-itens-center" role="button">
+                            <i class="fas fa-pencil-alt fs-6 text-dark" id="editar-usuario"></i>
+                        </span>
+                    </h2>
+
+                    <form action="/painel/perfil/{{ $usuario->id }}/editar" method="POST">
+                        @csrf
+                        <div class="d-flex justify-content-between">
+                            <div class="col-6 pe-1">
+                                <label for="name" class="form-label text-secondary">Nome</label>
+                                <input disabled id="name" name="name" value="{{ $usuario->name }}" type="text" class="form-control" placeholder="Nome">
+                            </div>
+    
+                            <div class="col-6 ps-1">
+                                <label for="password" class="form-label text-secondary">Nova Senha</label>
+                                <input disabled id="password" name="password" type="password" class="form-control" placeholder="Nova Senha">
+                            </div>
+                        </div>
+
+                        <div class="col-12 mt-2">
+                            <input disabled type="submit" class="btn btn-cloudflare text-light fs-5 col-12" value="Salvar">
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <section class="container">
+                <div class="rounded border border-cloudflare col-12 col-md-9 m-auto mt-5 p-3">
+                    <h2 class="text-center fw-bolder text-cloudflare fs-3">Usuários</h2>
+
+                    <ul class="list-group">
+                        @foreach ($usuarios as $usuario)
+                            <li class="list-group-item border-cloudflare text-cloudflare">{{ $usuario->name }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </section>
         </main>
 
         <script type="text/javascript">
             adicionarImagemUsuario();
+            editarUsuario();
         </script>
 
     @include('layouts/componentes/footer')
