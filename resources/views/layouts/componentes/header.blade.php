@@ -12,10 +12,12 @@
             </summary>
 
             <ul class="list-group position-absolute">
-                <li class="list-group-item p-2 text-end">
+                <li class="list-group-item p-2 text-start">
+                    <i class="fas fa-user text-secondary me-1"></i>
                     <a title="Perfil usuário" class="text-decoration-none text-secondary" href="/painel/perfil/{{ str_replace(' ', '-', strtolower($usuario->name)) }}">Perfil</a>
                 </li>
-                <li class="list-group-item py-2 px-3 text-end">
+                <li class="list-group-item py-2 px-3 text-start">
+                    <i class="fas fa-sign-out-alt text-danger"></i>
                     <a title="Fazer logout" class="text-decoration-none text-danger" href="/sair">Sair</a>
                 </li>
             </ul>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Services\Adicionar;
 use App\Services\Editar;
+use App\Services\Remover;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,5 +45,13 @@ class UsuarioController extends Controller
         !empty($request->password) ? Auth::logout() : '';
 
         return redirect()->back();
+    }
+
+    ////////////// REMOVER CONTA //////////////////
+    public function destroy(int $ID, Remover $remover)
+    {
+        $remover->removerConta($ID);
+
+        return redirect('/');
     }
 }

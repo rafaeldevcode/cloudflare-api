@@ -21,12 +21,27 @@
                         <h1 class="text-center">{{ $usuario->name }}</h1>
                     </div>
 
+                    <div class="w-100 d-flex justify-content-end">
+                        <a id="deletar-conta" class="text-decoration-none text-danger" href="#">Deletar conta</a>
+                    </div>
+
                     <div id="formulario-imagen" hidden class="position-absolute col-12 p-4 w-100 h-100 bg-secondary justify-content-center align-items-center rounded">
                         <i id="fechar-formulario-imagen" class="fas fa-times position-absolute"></i>
                         <form action="/painel/perfil/{{ $usuario->id }}/adicionar-imagen" method="POST" enctype="multipart/form-data" class="d-flex col-12">
                             @csrf
                             <input type="file" name="image_usuario" class="form-control w-75">
                             <button class="btn btn-cloudflare w-25" type="submit">Salvar</button>
+                        </form>
+                    </div>
+
+                    <div id="form-deletar-conta" hidden class="position-absolute col-12 p-4 w-100 h-100 bg-secondary justify-content-center align-items-center rounded">
+                        <div>
+                            <p class="text-light text-center"> Certeza que deseja remover esta conta?</p>
+                        </div>
+                        <form action="/painel/perfil/{{ $usuario->id }}/remover" method="POST" enctype="multipart/form-data" class="d-flex col-12 justify-content-center align-items-center">
+                            @csrf
+                            <button id="cancelar" class="btn btn-primary w-25 me-1" type="button">Cancelar</button>
+                            <button class="btn btn-cloudflare w-25 text-light ms-1" type="submit">Deletar</button>
                         </form>
                     </div>
                 </div>
@@ -68,7 +83,7 @@
 
                     <ul class="list-group">
                         @foreach ($usuarios as $usuario)
-                            <li class="list-group-item border-cloudflare text-cloudflare">{{ $usuario->name }}</li>
+                            <li class="list-group-item border rounded border-cloudflare text-cloudflare mb-3">{{ $usuario->name }}</li>
                         @endforeach
                     </ul>
                 </div>
@@ -78,6 +93,7 @@
         <script type="text/javascript">
             adicionarImagemUsuario();
             editarUsuario();
+            deletarConta();
         </script>
 
     @include('layouts/componentes/footer')

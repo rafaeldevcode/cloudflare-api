@@ -33,6 +33,10 @@
                                 {{ $tag->nome }}
 
                                 <span class="d-flex">
+                                    <a class="btn btn-cloudflare limpar-urls text-light" title="Limpar cache por urls" href="#">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </a>
+
                                     <form action="/tag/{{  $tag->id }}/purge" method="POST" class="ms-2">
                                         @csrf
                                         <input type="hidden" name="id_dominio" value="{{ $tag->ids_dominio }}">

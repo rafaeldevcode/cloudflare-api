@@ -280,3 +280,29 @@ function editarUsuario(){
         }
     })
 }
+
+/////////////// DELETAR CONTA //////////////////
+function deletarConta(){
+    document.getElementById('deletar-conta').addEventListener('click', (event)=>{
+        event.preventDefault();
+        
+        let formDeletarConta = document.getElementById('form-deletar-conta');
+            formDeletarConta.removeAttribute('hidden');
+            formDeletarConta.classList.remove('opacidadeReversa')
+            formDeletarConta.classList.add('opacidade')
+
+            fecaharFormDeletarConta(formDeletarConta);
+    })
+}
+
+////////////// FECHAR FORMULÁRIO DE DELETAR CONTA ////////////
+function fecaharFormDeletarConta(formDeletarConta){
+    document.getElementById('cancelar').addEventListener('click', ()=>{
+        formDeletarConta.classList.remove('opacidade')
+        formDeletarConta.classList.add('opacidadeReversa')
+    
+        setTimeout(() => {
+            formDeletarConta.hidden = true;
+        }, 400);
+    })
+}

@@ -104,7 +104,8 @@ footer{
     cursor: pointer;
 }
 
-#formulario-imagen{
+#formulario-imagen,
+#form-deletar-conta{
     top: 0;
     left: 0;
 }
