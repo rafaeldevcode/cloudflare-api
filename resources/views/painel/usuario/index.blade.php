@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="w-100 d-flex justify-content-end">
-                        <a id="deletar-conta" class="text-decoration-none text-danger" href="#">Deletar conta</a>
+                        <a title="Deletar conta" id="deletar-conta" class="text-decoration-none text-danger" href="#">Deletar conta</a>
                     </div>
 
                     <div id="formulario-imagen" hidden class="position-absolute col-12 p-4 w-100 h-100 bg-secondary justify-content-center align-items-center rounded">

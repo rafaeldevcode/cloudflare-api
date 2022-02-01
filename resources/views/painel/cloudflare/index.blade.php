@@ -15,6 +15,17 @@
                 <p class="m-0 fw-bolder text-cloudflare text-center">Limpar cache</p>
             </div>
 
+            <form action="/cloudflare/{{ $conta->id }}/pesquisar-dominios" method="POST" class="col-12 col-md-10 col-lg-8 mx-auto mt-5">
+                @csrf
+
+                <div class="d-flex flex-row input-group">
+                    <input disabled class="form-control border-cloudflare" type="search" name="pesquisar" placeholder="Pesquisar por dominíos">
+                    <button disabled type="submit" title="Pesquisar" class="btn btn-cloudflare text-light">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+
             <ul class="list-group col-12 col-md-10 col-lg-8 mt-5 m-auto">
                 <li class="header-list list-group-item mb-3 rounded d-flex justify-content-between align-items-center">
                     Domínio
@@ -35,7 +46,7 @@
                 
                 @if (empty($response['result'][0]))
                     <li class="list-group-item border border-cloudflare mb-3 rounded">
-                        Nenhum domínio cadastrado para esta conta!
+                        {{ $aviso }}
                     </li>
                 @else
                     @for ($i = 0; $i < count($response['result']); $i++)

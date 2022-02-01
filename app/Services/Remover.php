@@ -7,7 +7,10 @@ use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
-class Remover{
+    class Remover{
+
+
+        ////// REMOVER CONTA ///////
         public function removerConta(int $ID)
         {
             DB::beginTransaction();
@@ -19,6 +22,14 @@ class Remover{
                     $cloudflare->delete();
                 });
                 $usuario->delete();
+            DB::commit();
+        }
+
+        ///// REMOVER TAG ///////
+        public function removerTag($ID)
+        {
+            DB::beginTransaction();
+                Tag::find($ID)->delete();
             DB::commit();
         }
     }

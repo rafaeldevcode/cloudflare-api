@@ -17,7 +17,7 @@ class CloudflareController extends Controller
     }
 
     //////// CADASTRAR NOVA CONTA CLOUDFLARE ///////
-    public function index()
+    public function create()
     {
         $usuario = Auth::user();
 
@@ -34,16 +34,17 @@ class CloudflareController extends Controller
     }
 
     //////// LISTAR OS DOMINIOS - PAGINAÇÃO //////////
-    public function dominios(int $ID, ApiCloudflare $conectar, Request $request)
+    public function index(int $ID, ApiCloudflare $conectar, Request $request)
     {
         $usuario = Auth::user();
         $conta = Cloudflare::find($ID);
         $mensagem = $request->session()->get('mensagem');
+        $aviso = 'Nenhum domínio cadastrado para esta conta!';
         $page = empty($request->query('page')) ? 1 : $request->query('page');
 
         $response = json_decode($conectar->getZones($conta, $page), true);
 
-        return view('painel/cloudflare/index', compact('usuario', 'conta', 'response', 'mensagem'));
+        return view('painel/cloudflare/index', compact('usuario', 'conta', 'response', 'mensagem', 'aviso'));
     }
 
     /////////// LIMPAR O CACHE DO DOMINIO //////////

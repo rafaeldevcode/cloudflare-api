@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cloudflare;
+use App\Models\Tag;
 use App\Services\Adicionar;
 use App\Services\ApiCloudflare;
+use App\Services\Remover;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,8 +44,10 @@ class TagController extends Controller
         $conta = Cloudflare::find($ID);
         $tags = $conta->tags()->get();
         $mensagens = $request->session()->get('mensagens');
+        $mensagem = $request->session()->get('mensagem');
+        $aviso = 'Nenhuma tag cadastrada para esta conta!';
 
-        return view('painel/tags/index', compact('usuario', 'conta', 'tags', 'mensagens'));
+        return view('painel/tags/index', compact('usuario', 'conta', 'tags', 'mensagens', 'mensagem', 'aviso'));
     }
 
     ///////// LIMPAR CACHE DA TAG ////////
@@ -53,6 +57,16 @@ class TagController extends Controller
         $conta = Cloudflare::find($request->id_cloudflare);
         $response = $conectar->purgeUrlsSelecionadas($conta, $urls);
         $request->session()->flash('mensagens', $response);
+
+        return redirect()->back();
+    }
+
+    ///////// REMOVER TAG /////////
+    public function destroy(int $ID, Remover $remover, Request $request)
+    {
+        $tag =  Tag::find($ID)->nome;
+        $remover->removerTag($ID);
+        $request->session()->flash("mensagem", "Tag {$tag} removida com sucesso!");
 
         return redirect()->back();
     }

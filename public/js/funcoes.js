@@ -306,3 +306,10 @@ function fecaharFormDeletarConta(formDeletarConta){
         }, 400);
     })
 }
+
+//////////// CANCELAR FORMULÁRIO ////////////////
+function cancelarFormulario(){
+    document.getElementById('cancelar').addEventListener('click', ()=>{
+        document.querySelector('.sessao-remover-tag').remove();
+    })
+}
