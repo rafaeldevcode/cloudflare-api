@@ -8,7 +8,9 @@
             </div>
 
             <div class="form-goup p-3 animacaoEntrada" id="formularios">
-                @include('layouts/componentes/errors')
+                <div class="col-12 p-2 m-auto mensagem">
+                    @include('layouts/componentes/errors')
+                </div>
 
                 <form action="/entrar" method="POST" id="entrar">
                     @csrf
