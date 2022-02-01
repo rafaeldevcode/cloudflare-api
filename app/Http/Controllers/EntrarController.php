@@ -10,6 +10,10 @@ class EntrarController extends Controller
 {
     public function index()
     {
+        if(Auth::user()){
+            return redirect('/painel');
+        }
+        
         return view('entrar/index');
     }
 

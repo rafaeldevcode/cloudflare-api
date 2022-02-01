@@ -6,6 +6,7 @@ use App\Models\Cloudflare;
 use App\Models\Tag;
 use App\Services\Adicionar;
 use App\Services\ApiCloudflare;
+use App\Services\Editar;
 use App\Services\Remover;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -67,6 +68,15 @@ class TagController extends Controller
         $tag =  Tag::find($ID)->nome;
         $remover->removerTag($ID);
         $request->session()->flash("mensagem", "Tag {$tag} removida com sucesso!");
+
+        return redirect()->back();
+    }
+
+    /////// EDITAR TAG //////////
+    public function editar(int $ID, Request $request, Editar $editar)
+    {
+        $editar->editarTag($ID, $request);
+        $request->session()->flash('mensagem', 'Tag editada com sucesso!');
 
         return redirect()->back();
     }

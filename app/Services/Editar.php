@@ -2,12 +2,10 @@
 
     namespace App\Services;
 
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+    use App\Models\{Tag, User};
+    use Illuminate\Support\Facades\{Auth, Hash, DB};
 
-class Editar{
+    class Editar{
 
         /////////// EDITAR USUÁRIO ////////////
         public function editarUsuario($request, $usuario)
@@ -16,6 +14,16 @@ class Editar{
                 if(!empty($request->name)){$usuario->name = $request->name;}
                 if(!empty($request->password)){$usuario->password = Hash::make($request->password);}
                 $usuario->save();
+            DB::commit();
+        }
+
+        ///////// EDITAR TAG //////////
+        public function editarTag($ID, $request)
+        {
+            DB::beginTransaction();
+                $tag = Tag::find($ID);
+                $tag-> nome = $request->nome;
+                $tag->save();
             DB::commit();
         }
     }

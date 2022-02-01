@@ -33,6 +33,7 @@ Route::post('/cloudflare/{ID}/adicionar-tag', [TagController::class, 'store']);
 Route::get('/cloudflare/{ID}/listar-tag', [TagController::class, 'index']);
 Route::post('/tag/{ID}/purge', [TagController::class, 'limparTag']);
 Route::post('/tag/{ID}/remover', [TagController::class, 'destroy']);
+Route::post('/tag/{ID}/editar', [TagController::class, 'editar']);
 
 Route::get('/painel/perfil/{nomeUsuario}', [UsuarioController::class, 'index']);
 Route::post('/painel/perfil/{ID}/adicionar-imagen', [UsuarioController::class, 'store']);

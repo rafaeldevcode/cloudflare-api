@@ -313,3 +313,22 @@ function cancelarFormulario(){
         document.querySelector('.sessao-remover-tag').remove();
     })
 }
+
+/////////// ABILITAR FORMULÁRIO PARA EDITAR TAG ////////////
+function abililtarEditarTag(){
+    let btnEditarTag = document.querySelectorAll('.btn-editar-tag');
+    let formEditarTag = document.querySelectorAll('.form-editar-tag');
+    let editarTag = document.querySelectorAll('.editar-tag');
+
+    for (let i = 0; i < btnEditarTag.length; i++) {
+        btnEditarTag[i].addEventListener('click', ()=>{
+            if(formEditarTag[i].hasAttribute('hidden')){
+                formEditarTag[i].removeAttribute('hidden');
+                editarTag[i].hidden = true;
+            }else{
+                editarTag[i].removeAttribute('hidden');
+                formEditarTag[i].hidden = true;
+            }
+        })
+    }
+}

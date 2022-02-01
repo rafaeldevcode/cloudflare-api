@@ -44,12 +44,23 @@
                     @foreach ($tags as $tag)
                         <li class="list-group-item border border-cloudflare mb-3 rounded text-cloudflare">
                             <div class="d-flex justify-content-between align-items-center">
-                                {{ $tag->nome }}
+                                <span class="editar-tag">{{ $tag->nome }}</span>
+
+                                <form hidden action="/tag/{{ $tag->id }}/editar" method="POST" class="col-12 col-md-10 col-lg-8 form-editar-tag">
+                                    @csrf
+                    
+                                    <div class="d-flex flex-row input-group">
+                                        <input class="form-control border-cloudflare" type="text" name="nome" value="{{ $tag->nome }}">
+                                        <button type="submit" title="Salvar" class="btn btn-cloudflare text-light">
+                                            <i class="fas fa-save"></i>
+                                        </button>
+                                    </div>
+                                </form>
 
                                 <span class="d-flex">
-                                    <a class="btn btn-cloudflare limpar-urls text-light" title="Limpar cache por urls" href="#">
+                                    <button class="btn btn-cloudflare limpar-urls text-light btn-editar-tag" title="Limpar cache por urls" type="button">
                                         <i class="fas fa-pencil-alt"></i>
-                                    </a>
+                                    </button>
 
                                     <form action="/tag/{{  $tag->id }}/purge" method="POST" class="ms-2">
                                         @csrf
@@ -79,6 +90,7 @@
     <script type="text/javascript">
         acionarLoad();
         excluirTag();
+        abililtarEditarTag();
 
         ///////////////// EXIBIR FORMUL'RIO PARA EXCLUSÃO DA TAG ///////////
         function excluirTag(){
