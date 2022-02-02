@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidacaoCloudflare;
 use App\Models\Cloudflare;
 use App\Services\{Adicionar, ApiCloudflare};
 use GrahamCampbell\ResultType\Result;
@@ -25,7 +26,7 @@ class CloudflareController extends Controller
     }
 
     ///////////// GUARDAR CONTA NO BD ////////////
-    public function store(Request $request, int $ID, Adicionar $adicionar)
+    public function store(ValidacaoCloudflare $request, int $ID, Adicionar $adicionar)
     {
         $adicionar->adicionarContaCloudflare($request, $ID);
         $request->session()->flash('mensagem', 'Conta adicionada com sucesso!');

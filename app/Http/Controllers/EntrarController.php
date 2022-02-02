@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidacaoUsuario;
 use App\Services\Adicionar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,7 @@ class EntrarController extends Controller
         return view('entrar/index');
     }
 
-    public function store(Request $request, Adicionar $adicionar)
+    public function store(ValidacaoUsuario $request, Adicionar $adicionar)
     {
         $adicionar->adidionarUsuario($request);
         return redirect('/painel');

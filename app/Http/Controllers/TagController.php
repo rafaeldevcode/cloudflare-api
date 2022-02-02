@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidacaoTag;
 use App\Models\Cloudflare;
 use App\Models\Tag;
 use App\Services\Adicionar;
@@ -30,7 +31,7 @@ class TagController extends Controller
     }
 
     /////// GUARDAR TAG NO BANCO //////////////////
-    public function store(Request $request, int $ID, Adicionar $adicionar)
+    public function store(ValidacaoTag $request, int $ID, Adicionar $adicionar)
     {
         $adicionar->adicionarTag($request, $ID);
         $request->session()->flash('mensagem', 'Tag adicionada com sucesso!');
