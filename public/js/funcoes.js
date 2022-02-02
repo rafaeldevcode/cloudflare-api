@@ -191,35 +191,35 @@ function limparInputsSelecionados(urlsSelecionadas){
     };
 }
 
-///////// EXIBIR MENU LATERAL ASIDE ////////////
-function exibirMenu(){
-    document.querySelector('aside').addEventListener('mouseover', ()=>{
-        let exibirLink = document.querySelectorAll('.exibir-link');
+// ///////// EXIBIR MENU LATERAL ASIDE ////////////
+// function exibirMenu(){
+//     document.querySelector('aside').addEventListener('mouseover', ()=>{
+//         let exibirLink = document.querySelectorAll('.exibir-link');
 
-        setTimeout(() => {
-            for(let i = 0; i < exibirLink.length; i++){
-                exibirLink[i].removeAttribute('hidden');
+//         setTimeout(() => {
+//             for(let i = 0; i < exibirLink.length; i++){
+//                 exibirLink[i].removeAttribute('hidden');
 
-                exibirLink[i].classList.add('opacidadeMenuAside');
-            } 
-        }, 300);
+//                 exibirLink[i].classList.add('opacidadeMenuAside');
+//             } 
+//         }, 300);
 
-        ocultarMenu();
-    });
-}
+//         ocultarMenu();
+//     });
+// }
 
-//////// OCULTAR MENU LATERAL ASIDE //////////
-function ocultarMenu(){
-    document.querySelector('aside').addEventListener('mouseout', ()=>{
-        let exibirLink = document.querySelectorAll('.exibir-link');
+// //////// OCULTAR MENU LATERAL ASIDE //////////
+// function ocultarMenu(){
+//     document.querySelector('aside').addEventListener('mouseout', ()=>{
+//         let exibirLink = document.querySelectorAll('.exibir-link');
 
-        for(let i = 0; i < exibirLink.length; i++){
-            exibirLink[i].hidden = true;
+//         for(let i = 0; i < exibirLink.length; i++){
+//             exibirLink[i].hidden = true;
 
-            exibirLink[i].classList.remove('opacidadeMenuAside');
-        }
-    })
-}
+//             exibirLink[i].classList.remove('opacidadeMenuAside');
+//         }
+//     })
+// }
 
 ///////////// REMOVER MENSAGEM DE RETORNO DA LIMEZA DE CACHE ////////////
 function removerMensagem(){

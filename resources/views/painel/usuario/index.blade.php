@@ -7,6 +7,7 @@
             <section class="conatiner">
                 <div class="col-12 col-md-9 m-auto mensagem">
                     @include('layouts/componentes/mensagem')
+                    @include('layouts/componentes/errors')
                 </div>
 
                 <div class="rounded border border-cloudflare position-relative col-12 col-md-9 m-auto p-3 d-flex justify-content-between align-items-start flex-wrap">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ValidacaoImagem;
 use App\Models\User;
 use App\Services\Adicionar;
 use App\Services\Editar;
@@ -27,7 +28,7 @@ class UsuarioController extends Controller
     }
 
     /////////// ATUALIZAR FOTO DO PERFIL //////////
-    public function store(Request $request, Adicionar $adicionar, int $ID)
+    public function store(ValidacaoImagem $request, Adicionar $adicionar, int $ID)
     {
         $usuario = str_replace(' ', '-', strtolower(Auth::user()->name));
         $adicionar->adicionarImagenUsuario($request, $ID);

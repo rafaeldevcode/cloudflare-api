@@ -15,18 +15,17 @@ html{
 }
 
 aside{
-    width: 60px;
+    width: 180px;
     min-height: 100%;
-    transition: width .3s linear;
-    cursor: pointer;
+    transition: right .3s linear;
     position: absolute;
     top: 0;
-    right: 0;
+    right: -130px;
     z-index: 2;
 }
 
 aside:hover{
-    width: 180px;
+    right: 0;
 }
 
 footer{
@@ -201,9 +200,9 @@ footer{
     animation: dawnReverse .4s linear forwards;
 }
 
-.opacidadeMenuAside{
+/* .opacidadeMenuAside{
     animation: opacidadeMenuAside .3s linear forwards;
-}
+} */
 
 @keyframes animacaoEntrada {
     0%{
@@ -285,14 +284,14 @@ footer{
     }
 }
 
-@keyframes opacidadeMenuAside{
+/* @keyframes opacidadeMenuAside{
     0%{
         opacity: 0;
     }
     100%{
         opacity: 1;
     }
-}
+} */
 
 @keyframes load {
     0%{

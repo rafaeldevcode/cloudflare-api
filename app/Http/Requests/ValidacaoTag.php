@@ -32,7 +32,7 @@ class ValidacaoTag extends FormRequest
     public function messages()
     {
         return [
-            'required' => 'O campo :attribute é obrigatório'
+            'required' => 'O campo :attribute é obrigatório!'
         ];
     }
 }
