@@ -43,4 +43,4 @@ Route::post('/painel/perfil/{ID}/remover', [UsuarioController::class, 'destroy']
 Route::post('/cloudflare/{ID}/pesquisar-tag', [PesquisarController::class, 'pesquisarTag']);
 Route::post('/cloudflare/{ID}/pesquisar-dominios', [PesquisarController::class, 'pesquisarDominios']);
 
-Route::get('/cloudflare/purge/{ID}', [PurgeController::class, 'index']);
+Route::get('/cloudflare/{ID}/purge', [PurgeController::class, 'index']);

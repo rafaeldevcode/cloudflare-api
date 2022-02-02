@@ -43,12 +43,6 @@ footer{
     z-index: 1;
 }
 
-/* /////// NAVEGAÇÃO ASIDE /////// */
-/* .navegacao,
-.btn-menu{
-    margin-top: 85px;
-} */
-
 .image-logo{
     width: 150px;
 }
@@ -128,6 +122,10 @@ footer{
 .tags-dominios span input{
     cursor: pointer;
 }
+
+.pesquisar-tag div > button{
+    z-index: 0 !important;
+} 
 
 /* ////////// SESSÃO LOAD ////////// */
 .session-load{
@@ -284,15 +282,6 @@ footer{
     }
 }
 
-/* @keyframes opacidadeMenuAside{
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
-} */
-
 @keyframes load {
     0%{
         transform: rotate(0);
@@ -303,8 +292,8 @@ footer{
 }
 
 /* ////////// MEDIA SCREEN ///////// */
-@media only screen and (max-width: 770px){
+@media only screen and (max-width: 775px){
     aside{
-        right: -60px;
+        right: -180px;
     }
 }

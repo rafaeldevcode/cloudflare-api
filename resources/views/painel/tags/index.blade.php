@@ -15,7 +15,7 @@
                 <p class="m-0 fw-bolder text-cloudflare text-center">Limpar cache</p>
             </div>
 
-            <form action="/cloudflare/{{ $conta->id }}/pesquisar-tag" method="POST" class="col-12 col-md-10 col-lg-8 mx-auto mt-5">
+            <form action="/cloudflare/{{ $conta->id }}/pesquisar-tag" method="POST" class="pesquisar-tag col-12 col-md-10 col-lg-8 mx-auto mt-5">
                 @csrf
 
                 <div class="d-flex flex-row input-group">
@@ -30,9 +30,9 @@
                 <li class="header-list list-group-item mb-3 rounded d-flex justify-content-between align-items-center">
                     Tag
                     <span class="d-flex align-items-center">
-                        <p class="m-1">Editar tag |</p>
-                        <p class="m-1">Limpar tag |</p>
-                        <p class="m-1">Remover tag</p>
+                        <p class="m-1">Editar |</p>
+                        <p class="m-1">Limpar |</p>
+                        <p class="m-1">Remover</p>
                     </span>
                 </li>
 
@@ -51,7 +51,7 @@
                     
                                     <div class="d-flex flex-row input-group">
                                         <input class="form-control border-cloudflare" type="text" name="nome" value="{{ $tag->nome }}">
-                                        <button type="submit" title="Salvar" class="btn btn-cloudflare text-light">
+                                        <button type="submit" title="Salvar" class="btn btn-cloudflare text-light btn-editar-tag">
                                             <i class="fas fa-save"></i>
                                         </button>
                                     </div>
