@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{CloudflareController, EntrarController, PainelController, PesquisarController, UsuarioController, TagController};
+use App\Http\Controllers\{CloudflareController, EntrarController, PainelController, PesquisarController, PurgeController, UsuarioController, TagController};
 
 /*
 |--------------------------------------------------------------------------
@@ -42,3 +42,5 @@ Route::post('/painel/perfil/{ID}/remover', [UsuarioController::class, 'destroy']
 
 Route::post('/cloudflare/{ID}/pesquisar-tag', [PesquisarController::class, 'pesquisarTag']);
 Route::post('/cloudflare/{ID}/pesquisar-dominios', [PesquisarController::class, 'pesquisarDominios']);
+
+Route::get('/cloudflare/purge/{ID}', [PurgeController::class, 'index']);

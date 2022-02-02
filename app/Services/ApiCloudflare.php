@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Cloudflare;
 use Illuminate\Support\Facades\Http;
 
 class ApiCloudflare{
@@ -78,6 +79,27 @@ class ApiCloudflare{
         return $mensagens;
     }
 
+     /////////// LIMPAR DOMINIO POR PARAMETRO ////////////
+    public function limparDominioPorParametro($conta, $request, $dominio):string
+    {
+        $clear_dominio = [];
+        $response = $this->getAllDominios($conta);
+
+        if(!empty($dominio)){
+            foreach($response as $indice => $item){
+                if($indice == $dominio){
+                    array_push($clear_dominio, $item);
+                }
+            }
+    
+            $response = $this->purgeAll($conta, implode('', $clear_dominio));
+        }
+        
+        $mensagem = $response == true ? "Cache do domínio '{$dominio}' limpado com sucesso!" : "Erro ao limpar o cache do dominío '{$dominio}'!";
+
+        return $mensagem;
+    }
+
     //////////// PEGAR TODOS OS DOMINIOS //////////////
     public function getAllDominios($conta):array
     {
@@ -123,10 +145,7 @@ class ApiCloudflare{
             }
         }
 
-        $resultados = [
-            'dominios' => $dominios,
-            'ids_dominio' => $ids_dominio
-        ];
+        $resultados = array_combine($dominios, $ids_dominio);
 
         return $resultados;
     }
