@@ -59,9 +59,9 @@ class User extends Authenticatable
         // }
 
         if($this->image_usuario){
-            return str_replace('www.', '', $_SERVER['HTTP_HOST']) . '/' . $this->image_usuario;
+            return 'https://' . str_replace('www.', '', $_SERVER['HTTP_HOST']) . "\/storage\/" . $this->image_usuario;
         }else{
-            return str_replace('www.', '', $_SERVER['HTTP_HOST']) . '/images/avatar.png';
+            return 'https://' . str_replace('www.', '', $_SERVER['HTTP_HOST']) . '/images/avatar.png';
         }
     }
 }
