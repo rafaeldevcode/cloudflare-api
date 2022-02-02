@@ -21,7 +21,7 @@ aside{
     position: absolute;
     top: 0;
     right: -130px;
-    z-index: 2;
+    z-index: 0;
 }
 
 aside:hover{
@@ -72,7 +72,7 @@ footer{
 .drop ul{
     right: 0;
     width: 100px;
-    z-index: 2;
+    z-index: 1;
 }
 
 .btn-menu{
