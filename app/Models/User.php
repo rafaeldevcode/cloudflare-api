@@ -52,10 +52,16 @@ class User extends Authenticatable
 
     public function getImagemUsuarioAttribute()
     {
+        // if($this->image_usuario){
+        //     return Storage::url($this->image_usuario);
+        // }else{
+        //     return str_replace('/storage', '', Storage::url('images/avatar.png'));
+        // }
+
         if($this->image_usuario){
-            return Storage::url($this->image_usuario);
+            return gethostname() . $this->image_usuario;
         }else{
-            return str_replace('/storage', '', Storage::url('images/avatar.png'));
+            return gethostname() . 'images/avatar.png';
         }
     }
 }
