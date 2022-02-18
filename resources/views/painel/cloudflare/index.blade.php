@@ -19,8 +19,8 @@
                 @csrf
 
                 <div class="d-flex flex-row input-group">
-                    <input disabled class="form-control border-cloudflare" type="search" name="pesquisar" placeholder="Pesquisar por dominíos">
-                    <button disabled type="submit" title="Pesquisar" class="btn btn-cloudflare text-light">
+                    <input class="form-control border-cloudflare" type="search" name="pesquisar" placeholder="EX: meudominio.com.br">
+                    <button type="submit" title="Pesquisar" class="btn btn-cloudflare text-light">
                         <i class="fas fa-search"></i>
                     </button>
                 </div>

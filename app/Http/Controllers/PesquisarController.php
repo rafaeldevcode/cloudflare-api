@@ -36,9 +36,10 @@ class PesquisarController extends Controller
     {
         $usuario = Auth::user();
         $conta = Cloudflare::find($ID);
+        $response = $conectar->retornarPesquisaPorDominio($conta, $request);
+
         $mensagem = "{$this->mensagem} '{$request->pesquisar}'";
         $aviso = $this->aviso;
-        $response = json_decode($conectar->getZones($conta, '1'), true);
 
         return view('painel/cloudflare/index', compact('usuario', 'conta', 'response', 'mensagem', 'aviso'));
     }

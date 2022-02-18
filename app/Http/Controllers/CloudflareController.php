@@ -73,7 +73,7 @@ class CloudflareController extends Controller
         $response = $conectar->purgePorUrl($conta, $id_dominio, $urls);
 
         if($response == 1){
-            $request->session()->flash('mensagem', 'cache Limpado com sucesso!');
+            $request->session()->flash('mensagem', 'Cache limpado com sucesso!');
 
             return redirect()->back();
         }else{

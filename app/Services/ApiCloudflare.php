@@ -120,6 +120,35 @@ class ApiCloudflare{
         return $resultados;
     }
 
+    /////////// RETORNAR PESQUISA POR DOMINIOS ////////
+    public function retornarPesquisaPorDominio($conta, $request): array
+    {
+        $dominios = $this->getAllDominios($conta);
+        $dominio = [];
+
+        foreach($dominios as $value => $key){
+            if($value === $request->pesquisar){
+                array_push($dominio, $value);
+                array_push($dominio, $key);
+            }
+        }
+
+        $response = [
+            'result' => [
+                0 => [
+                    'name' => $dominio[0],
+                    'id' => $dominio[1],
+                ],
+            ],
+            'result_info' => [
+                'page' => 1,
+                'total_pages' => 1,
+            ],
+        ];
+
+        return $response;
+    }
+
     ///////// RETORNAR QUANTAS PAGINAS TEM A REQUISIÇÃO //////////
     private function retornarTotalPaginas($conta):int
     {
