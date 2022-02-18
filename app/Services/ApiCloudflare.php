@@ -133,18 +133,28 @@ class ApiCloudflare{
             }
         }
 
-        $response = [
-            'result' => [
-                0 => [
-                    'name' => $dominio[0],
-                    'id' => $dominio[1],
+        if(!empty($dominio)){
+            $response = [
+                'result' => [
+                    0 => [
+                        'name' => $dominio[0],
+                        'id' => $dominio[1],
+                    ],
                 ],
-            ],
-            'result_info' => [
-                'page' => 1,
-                'total_pages' => 1,
-            ],
-        ];
+                'result_info' => [
+                    'page' => 1,
+                    'total_pages' => 1,
+                ],
+            ];
+        }else{
+            $response = [
+                'result' => [],
+                'result_info' => [
+                    'page' => 1,
+                    'total_pages' => 1,
+                ],
+            ];
+        }
 
         return $response;
     }
