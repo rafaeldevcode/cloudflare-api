@@ -16,7 +16,7 @@ class AdicionarTag extends Migration
     {
         Schema::create('tags', function(Blueprint $table){
             $table->increments('id');
-            $table->integer('cloudflare_id');
+            $table->integer('cloudflare_id')->unsigned();
             $table->foreign('cloudflare_id')->references('id')->on('cloudflare');
             $table->string('nome');
             $table->string('ids_dominio');
