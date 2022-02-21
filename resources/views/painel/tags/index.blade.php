@@ -26,6 +26,11 @@
                 </div>
             </form>
 
+            <div class="alert alert-info col-12 col-md-10 col-lg-8 mx-auto mt-5">
+                Aviso: Dependendo da quantidade de domínio que foi adicionado a tag, é normal haver uma demora na hora de limpar o cache, 
+                pois é feita uma solicitação individual para a API, para efetuar limpeza de cache dos domínios! 
+            </div>
+
             <ul class="list-group col-12 col-md-10 col-lg-8 mt-5 m-auto">
                 <li class="header-list list-group-item mb-3 rounded d-flex justify-content-between align-items-center">
                     Tag
