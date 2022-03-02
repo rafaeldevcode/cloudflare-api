@@ -42,7 +42,7 @@
 # Instalando pacotes depois de baixar projeto
 
 - composer install [Instala as dependências]
-- php artisan make:migratio criate [Cria as tabelas no Banco de Dados]
+- php artisan migrate:fresh [Cria as tabelas no Banco de Dados]
 - php artisan storage:link [Criar um link simbólico para fazer uplod de imagens]
 - php artisan key:generete [Criar chave para a aplicação]
 
